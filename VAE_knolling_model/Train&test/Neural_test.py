@@ -1,6 +1,6 @@
 import numpy as np
 from torch.utils.data import DataLoader
-from VAE_model import VAE, CustomImageDataset
+from Neural_model import VAE, CustomImageDataset
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize, ToPILImage
 import torch
 

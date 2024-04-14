@@ -3,7 +3,7 @@ import torch
 from torch import nn
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-from VAE_model import VAE, CustomImageDataset, EncoderDecoder
+from Neural_model import VAE, CustomImageDataset, EncoderDecoder
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize
 import numpy as np
 import wandb
