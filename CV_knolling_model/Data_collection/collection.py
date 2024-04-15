@@ -15,7 +15,7 @@ import csv
 import pandas
 import glob
 
-from VAE_arrange_policy import configuration_zzz, arrangement
+from arrange_policy import configuration_zzz, arrangement
 
 torch.manual_seed(42)
 
