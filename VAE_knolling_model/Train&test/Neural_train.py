@@ -37,18 +37,13 @@ def main(epochs):
         running_name = 'zzz_test'
 
 
-    config.log_pth = f'data/{running_name}/'
+    config.log_pth = f'results/{running_name}/'
     config.patience = 50
     config.loss_d_epoch = 20
     config.dataset_path = dataset_path
     config.num_data = num_data
     config.scheduler_factor = 0.1
-    config.conv_hidden = [16, 32, 64, 128, 256]
-    config.latent_dim = 4096
-    config.latent_enable = True
     config.lr = 0.01
-    # config.kl_weight = 0.01
-    config.kl_weight = 0.0001
 
     os.makedirs(config.log_pth, exist_ok=True)
 
@@ -71,28 +66,19 @@ def main(epochs):
     if config.pre_trained:
         model = torch.load(pretrain_model_path, map_location=device)
     else:
-        # model = VAE(
-        #     conv_hiddens=config.conv_hidden, latent_dim=config.latent_dim, img_length_width=128, latent_dim_enable=config.latent_enable,
-        #     kl_weight=config.kl_weight
-        # ).to(device)
+
         model = EncoderDecoder(in_channels=3).to(device)
-        # model = VAE(
-        #     ).to(device)
-        # model.load_state_dict(checkpoint)
 
 
     # Training setup
     optimizer = torch.optim.Adam(model.parameters(), lr=config.lr)
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, factor=config.scheduler_factor,
                                                            patience=config.loss_d_epoch, verbose=True)
-    # criterion = nn.BCELoss(reduction='sum')
 
     min_loss = np.inf
     for epoch in range(epochs):
         model.train()
         train_loss = []
-        # train_recon_loss = []
-        # train_kl_loss = []
         for batch_idx, (img_rdm, img_neat) in enumerate(train_loader):
             img_rdm = img_rdm.to(device)
             img_neat = img_neat.to(device)
@@ -109,18 +95,12 @@ def main(epochs):
             loss = model.loss_function(img_recon, img_rdm)
             loss.backward()
             train_loss.append(loss.item())
-            # train_recon_loss.append(recon_loss.item())
-            # train_kl_loss.append(kl_loss.item())
             optimizer.step()
 
         train_loss = np.mean(np.asarray(train_loss))
-        # train_recon_loss = np.mean(np.asarray(train_recon_loss))
-        # train_kl_loss = np.mean(np.asarray(train_kl_loss))
 
         model.eval()
         val_loss = []
-        # val_recon_loss = []
-        # val_kl_loss = []
         with torch.no_grad():
             for img_rdm, img_neat in test_loader:
                 img_rdm = img_rdm.to(device)
@@ -128,12 +108,8 @@ def main(epochs):
                 img_recon, latent = model(img_rdm)
                 loss = model.loss_function(img_recon, img_rdm)
                 val_loss.append(loss.item())
-                # val_recon_loss.append(recon_loss.item())
-                # val_kl_loss.append(kl_loss.item())
 
             val_loss = np.mean(np.asarray(val_loss))
-            # val_recon_loss = np.mean(np.asarray(val_recon_loss))
-            # val_kl_loss = np.mean(np.asarray(val_kl_loss))
         scheduler.step(val_loss)
 
 
@@ -143,7 +119,7 @@ def main(epochs):
             PATH = config.log_pth + '/best_model.pt'
             torch.save(model, PATH)
             abort_learning = 0
-        if val_loss > 10e8:
+        if val_loss > 10e4:
             print('outlier!')
             abort_learning = 10000
         else:
@@ -154,11 +130,7 @@ def main(epochs):
 
         if wandb_flag == True:
             wandb.log({"train_loss": train_loss,
-                       # "train_recon_loss": train_recon_loss,
-                       # "train_kl_loss": train_kl_loss,
                        "valid_loss": val_loss,
-                       # "valid_recon_loss": val_recon_loss,
-                       # "valid_kl_loss": val_kl_loss,
                        "learning_rate": optimizer.param_groups[0]['lr'],
                        })
 
@@ -192,16 +164,11 @@ if __name__ == "__main__":
                                        output_dir=dataset_path + 'images_before/',
                                        num_img=num_train, num_total=num_data, start_idx=0,
                                        transform=transform)
-    # test_dataset = CustomImageDataset(input_dir=dataset_path + 'images_before/',
-    #                                    output_dir=dataset_path + 'images_before/',
-    #                                    num_img=num_test, num_total=num_data, start_idx=num_train,
-    #                                     transform=transform)
     test_dataset = CustomImageDataset(input_dir=dataset_path + 'images_before/',
-                                      output_dir=dataset_path + 'images_before/',
-                                      num_img=num_train, num_total=num_data, start_idx=0,
-                                      transform=transform)
+                                       output_dir=dataset_path + 'images_before/',
+                                       num_img=num_test, num_total=num_data, start_idx=num_train,
+                                        transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
-    # Training the VAE for a few epochs to see the initial behavior
     main(num_epochs)

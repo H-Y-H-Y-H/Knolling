@@ -22,7 +22,7 @@ def reconstruct(device, dataloader, model):
         input = img_rdm[1].detach().cpu()
         combined = torch.cat((output, input), 1)
         img = ToPILImage()(combined)
-        img.save(f'selected_data/{running_name}/tmp_{index}_128.jpg')
+        img.save(f'results/{running_name}/tmp_{index}_128.jpg')
 
         index += 1
 
@@ -33,7 +33,7 @@ def reconstruct(device, dataloader, model):
     print('eval recon loss:', eval_recon_loss)
     print('eval kl loss:', eval_kl_loss)
 
-    with open(f'selected_data/{running_name}/report_128.txt', "w") as f:
+    with open(f'results/{running_name}/report_128.txt', "w") as f:
         f.write('----------- Dataset -----------\n')
 
         f.write('----------- Dataset -----------\n')
@@ -85,14 +85,14 @@ def main():
 
     device = 'cuda:0'
 
-    model = torch.load(f'selected_data/{running_name}/best_model.pt', 'cuda:0').to(device)
+    model = torch.load(f'results/{running_name}/best_model.pt', 'cuda:0').to(device)
 
     reconstruct(device, dataloader=test_loader, model=model)
 
 def show_structure():
 
     device = 'cuda:0'
-    model = torch.load(f'selected_data/{running_name}/best_model.pt', 'cuda:0').to(device)
+    model = torch.load(f'results/{running_name}/best_model.pt', 'cuda:0').to(device)
 
     print(model)
 
@@ -102,6 +102,6 @@ if __name__ == '__main__':
     running_name = 'zzz_test'
     # running_name = 'fanciful-wave-30'
     # running_name = 'daily-meadow-31'
-    running_name = 'misty-snowflake-33'
+    # running_name = 'misty-snowflake-33'
     main()
     # show_structure()
