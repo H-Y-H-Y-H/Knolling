@@ -22,7 +22,7 @@ def main(epochs):
 
         if config.pre_trained == True:
             # Load the YAML file
-            pretrained_model = 'balmy-valley-10'
+            pretrained_model = 'mild-elevator-53'
             with open(f'results/{pretrained_model}/config.yaml', 'r') as yaml_file:
                 config_dict = yaml.safe_load(yaml_file)
             config = {k: v for k, v in config_dict.items() if not k.startswith('_')}
@@ -164,7 +164,7 @@ if __name__ == "__main__":
 
     torch.manual_seed(0)
     num_epochs = 500
-    num_data = 3600
+    num_data = 1200
     before_after = 'before'
     if before_after == 'before':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'

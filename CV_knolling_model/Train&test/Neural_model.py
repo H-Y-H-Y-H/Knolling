@@ -418,7 +418,6 @@ class EncoderDecoder(torch.nn.Module):
         x = torch.reshape(encoded_flatten, (-1, encoded_shape[1], encoded_shape[2], encoded_shape[3]))
         # x == encoded all!!!!!!
 
-
         mean = self.mean_linear(encoded_flatten)
         logvar = self.var_linear(encoded_flatten)
         eps = torch.randn_like(logvar)
@@ -435,6 +434,6 @@ class EncoderDecoder(torch.nn.Module):
 
         recons_loss = F.mse_loss(y_hat, y)
         kl_loss = torch.mean(-0.5 * torch.sum(1 + logvar - mean ** 2 - torch.exp(logvar), 1), 0)
-        loss = recons_loss + kl_loss * self.kl_weight
-        loss_mse = recons_loss
+        # loss = recons_loss + kl_loss * self.kl_weight
+        loss = recons_loss
         return loss, recons_loss, kl_loss * self.kl_weight
