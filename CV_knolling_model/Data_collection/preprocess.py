@@ -31,10 +31,10 @@ def change_name(source_path, target_path, start_idx, end_idx):
 
 def transform(source_path, target_path):
 
-    label_num = 1000
+    label_num = 100
     sol_num = 12
 
-    img_path = target_path + 'images_before_64/'
+    img_path = target_path + 'images_after/'
     os.makedirs(img_path, exist_ok=True)
     # img_num = os.listdir(img_path)
 
@@ -43,8 +43,8 @@ def transform(source_path, target_path):
 
         for j in range(sol_num):
 
-            orig_img = cv2.imread(target_path + 'origin_images_before/label_%d_%d.png' % (i, j))
-            img = cv2.resize(orig_img, (64, 64))
+            orig_img = cv2.imread(target_path + 'origin_images_after/label_%d_%d.png' % (i, j))
+            img = cv2.resize(orig_img, (128, 128))
 
             # cv2.namedWindow('zzz', 0)
             # cv2.resizeWindow('zzz', 1280, 960)

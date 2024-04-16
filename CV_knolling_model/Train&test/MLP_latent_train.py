@@ -3,7 +3,7 @@ import torch
 from torch import nn
 from torchvision import datasets, transforms
 from torch.utils.data import DataLoader
-from Neural_model import VAE, CustomImageDataset, EncoderDecoder
+from Neural_model import VAE, CustomImageDataset, EncoderDecoder, MLP_latent
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize
 import numpy as np
 import wandb
@@ -36,16 +36,20 @@ def main(epochs):
         config.pre_trained = pre_train_flag
         running_name = 'zzz_test'
 
-
+    config.rdm_encoder_path = 'results/lunar-serenity-38/best_model.pt'
+    config.neat_encoder_path = 'results/solar-violet-39/best_model.pt'
     config.log_pth = f'results/{running_name}/'
     config.patience = 50
     config.loss_d_epoch = 20
     config.dataset_path = dataset_path
     config.num_data = num_data
     config.scheduler_factor = 0.1
-    config.lr = 0.001
-    config.kl_weight = 0.00005
+    config.mlp_hidden = [4096, 2048, 4096]
     config.latent_dim = 4096
+    config.latent_enable = True
+    config.lr = 0.001
+    # config.kl_weight = 0.01
+    # config.kl_weight = 0.0001
 
     os.makedirs(config.log_pth, exist_ok=True)
 
@@ -64,13 +68,13 @@ def main(epochs):
     print('Use: ', device)
 
     # Model instantiation
-    if config.pre_trained:
-        # model = torch.load(pretrain_model_path, map_location=device)
-        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight).to(device)
-        model.load_state_dict(torch.load(pretrain_model_path, map_location=device))
-    else:
 
-        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight).to(device)
+    rdm_model = torch.load(config.rdm_encoder_path, map_location=device)
+    neat_model = torch.load(config.neat_encoder_path, map_location=device)
+    if config.pre_trained:
+        model = torch.load(pretrain_model_path, map_location=device)
+    else:
+        model = MLP_latent(mlp_hidden=config.mlp_hidden).to(device)
 
     # Training setup
     optimizer = torch.optim.Adam(model.parameters(), lr=config.lr)
@@ -81,14 +85,18 @@ def main(epochs):
     for epoch in range(epochs):
         model.train()
         train_loss = []
-        train_recon_loss = []
-        train_kl_loss = []
         for batch_idx, (img_rdm, img_neat) in enumerate(train_loader):
-            optimizer.zero_grad()
+
             img_rdm = img_rdm.to(device)
             img_neat = img_neat.to(device)
+            optimizer.zero_grad()
 
-            img_recon, mean, logvar = model(img_rdm)
+            img_rdm_recon, rdm_latent = rdm_model(img_rdm)
+            img_neat_recon, neat_latent = neat_model(img_neat)
+            # rdm_latent = torch.flatten(rdm_latent, 1)
+            # neat_latent = torch.flatten(neat_latent, 1)
+
+            pred_neat_latent, mean, logvar = model(rdm_latent)
 
             # img_check = (img_recon.squeeze().cpu().detach().numpy().transpose([1, 2, 0]) * 255).astype(np.uint8)
             # cv2.namedWindow('zzz', 0)
@@ -97,45 +105,41 @@ def main(epochs):
             # cv2.waitKey()
             # cv2.destroyAllWindows()
 
-            tra_loss, tra_recon_loss, tra_kl_loss = model.loss_function(img_recon, img_rdm, mean, logvar)
-            tra_loss.backward()
-            train_loss.append(tra_loss.item())
-            train_recon_loss.append(tra_recon_loss.item())
-            train_kl_loss.append(tra_kl_loss.item())
+            loss = model.loss_function(pred_neat_latent, mean, logvar)
+            loss.backward()
+            train_loss.append(loss.item())
             optimizer.step()
 
         train_loss = np.mean(np.asarray(train_loss))
-        train_recon_loss = np.mean(np.asarray(train_recon_loss))
-        train_kl_loss = np.mean(np.asarray(train_kl_loss))
 
         model.eval()
-        valid_loss = []
-        valid_recon_loss = []
-        valid_kl_loss = []
+        val_loss = []
         with torch.no_grad():
             for img_rdm, img_neat in test_loader:
+
                 img_rdm = img_rdm.to(device)
                 img_neat = img_neat.to(device)
-                img_recon, mean, logvar = model(img_rdm)
-                evl_loss, evl_recon_loss, evl_kl_loss = model.loss_function(img_recon, img_rdm, mean, logvar)
-                valid_loss.append(evl_loss.item())
-                valid_recon_loss.append(evl_recon_loss.item())
-                valid_kl_loss.append(evl_kl_loss.item())
+                img_rdm_recon, rdm_latent = rdm_model(img_rdm)
+                img_neat_recon, neat_latent = neat_model(img_neat)
+                # rdm_latent = torch.flatten(rdm_latent, 1)
+                # neat_latent = torch.flatten(neat_latent, 1)
 
-            valid_loss = np.mean(np.asarray(valid_loss))
-            valid_recon_loss = np.mean(np.asarray(valid_recon_loss))
-            valid_kl_loss = np.mean(np.asarray(valid_kl_loss))
-        scheduler.step(valid_loss)
+                pred_neat_latent, mean, logvar = model(rdm_latent)
+
+                loss = model.loss_function(pred_neat_latent, mean, logvar)
+                val_loss.append(loss.item())
+
+            val_loss = np.mean(np.asarray(val_loss))
+        scheduler.step(val_loss)
 
 
-        if valid_loss < min_loss:
-            print(f'Epoch {epoch}, Train Loss: {train_loss}, Validation Loss: {valid_loss}, Lr: {optimizer.param_groups[0]["lr"]}')
-            min_loss = valid_loss
+        if val_loss < min_loss:
+            print(f'Epoch {epoch}, Train Loss: {train_loss}, Validation Loss: {val_loss}, Lr: {optimizer.param_groups[0]["lr"]}')
+            min_loss = val_loss
             PATH = config.log_pth + '/best_model.pt'
-            # torch.save(model, PATH)
-            torch.save(model.state_dict(), PATH)
+            torch.save(model, PATH)
             abort_learning = 0
-        if valid_loss > 10e4:
+        if val_loss > 10e4:
             print('outlier!')
             abort_learning = 10000
         else:
@@ -146,11 +150,7 @@ def main(epochs):
 
         if wandb_flag == True:
             wandb.log({"train_loss": train_loss,
-                       "train_recon_loss": train_recon_loss,
-                       "train_kl_loss": train_kl_loss,
-                       "valid_loss": valid_loss,
-                       "valid_recon_loss": valid_recon_loss,
-                       "valid_kl_loss": valid_kl_loss,
+                       "valid_loss": val_loss,
                        "learning_rate": optimizer.param_groups[0]['lr'],
                        })
 
@@ -158,22 +158,15 @@ def main(epochs):
             print('abort training!')
             break
 
+if __name__ == '__main__':
 
-
-if __name__ == "__main__":
-
-    torch.manual_seed(0)
     num_epochs = 500
-    num_data = 3600
-    before_after = 'before'
-    if before_after == 'before':
-        dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
-    elif before_after == 'after':
-        dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_after/'
-    wandb_flag = True
+    num_data = 1200
+
+    dataset_path = '../../../knolling_dataset/VAE_329_obj4/'
+    wandb_flag = False
     pre_train_flag = False
-    train_train = False
-    proj_name = "VAE_knolling"
+    proj_name = "MLP_latent"
 
     train_input = []
     train_output = []
@@ -184,19 +177,16 @@ if __name__ == "__main__":
 
     batch_size = 64
     transform = Compose([
-                        ToTensor()  # Normalize the image
-                        ])
-    train_dataset = CustomImageDataset(input_dir=dataset_path,
-                                       output_dir=dataset_path,
+        ToTensor()  # Normalize the image
+    ])
+    train_dataset = CustomImageDataset(input_dir=dataset_path + 'images_before/',
+                                       output_dir=dataset_path + 'images_after/',
                                        num_img=num_train, num_total=num_data, start_idx=0,
                                        transform=transform)
-    if train_train == True:
-        test_dataset = train_dataset
-    else:
-        test_dataset = CustomImageDataset(input_dir=dataset_path,
-                                       output_dir=dataset_path,
-                                       num_img=num_test, num_total=num_data, start_idx=num_train,
-                                        transform=transform)
+    test_dataset = CustomImageDataset(input_dir=dataset_path + 'images_before/',
+                                      output_dir=dataset_path + 'images_after/',
+                                      num_img=num_test, num_total=num_data, start_idx=num_train,
+                                      transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 

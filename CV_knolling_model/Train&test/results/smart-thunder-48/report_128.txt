@@ -1,0 +1,7 @@
+----------- Dataset -----------
+----------- Dataset -----------
+----------- Statistics -----------
+eval loss: 0.00360446231206879
+eval recon loss: 0.00360446231206879
+eval kl loss: 0.02801567781716585
+----------- Statistics sundry_box_4-----------

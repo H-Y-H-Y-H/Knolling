@@ -2,7 +2,7 @@ import numpy as np
 import cv2
 import pybullet as p
 import pybullet_data as pd
-from utils import *
+from CV_knolling_model.utils import *
 import copy
 
 class configuration_zzz():

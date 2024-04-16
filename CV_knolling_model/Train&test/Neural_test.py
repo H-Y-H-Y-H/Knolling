@@ -13,13 +13,13 @@ def reconstruct(device, dataloader, model):
     index = 0
     for img_rdm, img_neat in dataloader:
         img_rdm = img_rdm.to(device)
-        img_recon, latent = model(img_rdm)
-        loss = model.loss_function(img_recon, img_rdm)
+        img_recon, mean, logvar = model(img_rdm)
+        loss, recon_loss, kl_loss = model.loss_function(img_recon, img_rdm, mean, logvar)
         eval_loss.append(loss.item())
-        # eval_recon_loss.append(recon_loss.item())
-        # eval_kl_loss.append(kl_loss.item())
-        output = img_recon[1].detach().cpu()
-        input = img_rdm[1].detach().cpu()
+        eval_recon_loss.append(recon_loss.item())
+        eval_kl_loss.append(kl_loss.item())
+        output = img_recon[12].detach().cpu()
+        input = img_rdm[12].detach().cpu()
         combined = torch.cat((output, input), 1)
         img = ToPILImage()(combined)
         img.save(f'results/{running_name}/tmp_{index}_128.jpg')
@@ -54,9 +54,11 @@ def reconstruct(device, dataloader, model):
     # img.save(f'results/{running_name}/tmp.jpg')
 
 def main():
-    num_epochs = 100
-    num_data = 1200
-    dataset_path = '../../../knolling_dataset/VAE_329_obj4/'
+
+    if before_after == 'before':
+        dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
+    elif before_after == 'after':
+        dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_after/'
     wandb_flag = False
     proj_name = "VAE_knolling"
 
@@ -72,12 +74,12 @@ def main():
     transform = Compose([
         ToTensor()  # Normalize the image
     ])
-    train_dataset = CustomImageDataset(input_dir=dataset_path + 'images_before/',
-                                       output_dir=dataset_path + 'images_before/',
+    train_dataset = CustomImageDataset(input_dir=dataset_path,
+                                       output_dir=dataset_path,
                                        num_img=num_train, num_total=num_data, start_idx=0,
                                        transform=transform)
-    test_dataset = CustomImageDataset(input_dir=dataset_path + 'images_before/',
-                                      output_dir=dataset_path + 'images_before/',
+    test_dataset = CustomImageDataset(input_dir=dataset_path,
+                                      output_dir=dataset_path,
                                       num_img=num_test, num_total=num_data, start_idx=num_train,
                                       transform=transform)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
@@ -97,11 +99,16 @@ def show_structure():
     print(model)
 
 if __name__ == '__main__':
-    # running_name = 'atomic-haze-17'
-    # running_name = 'upbeat-dust-25'
+
+    before_after = 'before'
+    torch.manual_seed(0)
     running_name = 'zzz_test'
-    # running_name = 'fanciful-wave-30'
-    # running_name = 'daily-meadow-31'
-    # running_name = 'misty-snowflake-33'
+    # running_name = 'lunar-serenity-38'
+
+    running_name = 'lilac-snowball-52'
+
+    num_epochs = 100
+    num_data = 3600
+
     main()
     # show_structure()
