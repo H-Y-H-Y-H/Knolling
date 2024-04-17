@@ -3,6 +3,12 @@ from torch.utils.data import DataLoader
 from Neural_model import VAE, CustomImageDataset
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize, ToPILImage
 import torch
+from Neural_model import VAE, CustomImageDataset, EncoderDecoder
+import numpy as np
+import wandb
+import yaml
+import os
+import argparse
 
 def reconstruct(device, dataloader, model):
     model.eval()
@@ -22,9 +28,12 @@ def reconstruct(device, dataloader, model):
         input = img_rdm[12].detach().cpu()
         combined = torch.cat((output, input), 1)
         img = ToPILImage()(combined)
-        img.save(f'results/{running_name}/tmp_{index}_128.jpg')
+        img.save(f'results/{running_name}/eval_{index}.jpg')
 
         index += 1
+
+        if index >= num_sample:
+            break
 
     eval_loss = np.mean(np.asarray(eval_loss))
     eval_recon_loss = np.mean(np.asarray(eval_recon_loss))
@@ -53,15 +62,64 @@ def reconstruct(device, dataloader, model):
     # img = ToPILImage()(combined)
     # img.save(f'results/{running_name}/tmp.jpg')
 
+def gaussian_sample(device, model, batch_size, latent_dim):
+    model.eval()
+
+    for i in range(num_sample):
+        input_sample = torch.randn(batch_size, latent_dim).to(device)
+        img_recon = model.sample(input_sample)
+        output = img_recon[12].detach().cpu()
+        input = input_sample[12].detach().cpu()
+        # combined = torch.cat((output, input), 1)
+        img = ToPILImage()(output)
+        img.save(f'results/{running_name}/sample_{i}.jpg')
+
+    eval_loss = []
+    eval_recon_loss = []
+    eval_kl_loss = []
+    index = 0
+    # for img_rdm, img_neat in dataloader:
+    #     img_rdm = img_rdm.to(device)
+    #     img_recon, mean, logvar = model(img_rdm)
+    #     loss, recon_loss, kl_loss = model.loss_function(img_recon, img_rdm, mean, logvar)
+    #     eval_loss.append(loss.item())
+    #     eval_recon_loss.append(recon_loss.item())
+    #     eval_kl_loss.append(kl_loss.item())
+    #     output = img_recon[12].detach().cpu()
+    #     input = img_rdm[12].detach().cpu()
+    #     combined = torch.cat((output, input), 1)
+    #     img = ToPILImage()(combined)
+    #     img.save(f'results/{running_name}/tmp_{index}_128.jpg')
+    #
+    #     index += 1
+    #
+    # eval_loss = np.mean(np.asarray(eval_loss))
+    # eval_recon_loss = np.mean(np.asarray(eval_recon_loss))
+    # eval_kl_loss = np.mean(np.asarray(eval_kl_loss))
+    # print('eval loss:', eval_loss)
+    # print('eval recon loss:', eval_recon_loss)
+    # print('eval kl loss:', eval_kl_loss)
+    #
+    # with open(f'results/{running_name}/report_128.txt', "w") as f:
+    #     f.write('----------- Dataset -----------\n')
+    #
+    #     f.write('----------- Dataset -----------\n')
+    #
+    #     f.write('----------- Statistics -----------\n')
+    #     f.write(f'eval loss: {eval_loss}\n')
+    #     f.write(f'eval recon loss: {eval_recon_loss}\n')
+    #     f.write(f'eval kl loss: {eval_kl_loss}\n')
+    #     f.write('----------- Statistics sundry_box_4-----------\n')
+
 def main():
 
     if before_after == 'before':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
     elif before_after == 'after':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_after/'
+
     wandb_flag = False
     proj_name = "VAE_knolling"
-
 
     train_input = []
     train_output = []
@@ -71,25 +129,37 @@ def main():
     num_test = int(num_data - num_train)
 
     batch_size = 64
-    transform = Compose([
-        ToTensor()  # Normalize the image
-    ])
-    train_dataset = CustomImageDataset(input_dir=dataset_path,
-                                       output_dir=dataset_path,
-                                       num_img=num_train, num_total=num_data, start_idx=0,
-                                       transform=transform)
-    test_dataset = CustomImageDataset(input_dir=dataset_path,
-                                      output_dir=dataset_path,
-                                      num_img=num_test, num_total=num_data, start_idx=num_train,
-                                      transform=transform)
-    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    with open(f'results/{running_name}/config.yaml', 'r') as yaml_file:
+        config_dict = yaml.safe_load(yaml_file)
+    config = {k: v for k, v in config_dict.items() if not k.startswith('_')}
+    config = argparse.Namespace(**config)
+    config.pre_trained = True
 
     device = 'cuda:0'
+    pretrain_model_path = f'results/{running_name}/best_model.pt'
+    model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight).to(device)
 
-    model = torch.load(f'results/{running_name}/best_model.pt', 'cuda:0').to(device)
+    model.load_state_dict(torch.load(pretrain_model_path, map_location=device))
 
-    reconstruct(device, dataloader=test_loader, model=model)
+    if flag == 'sample':
+        gaussian_sample(device, model=model, batch_size=batch_size, latent_dim=config.latent_dim)
+    else:
+        transform = Compose([
+            ToTensor()  # Normalize the image
+        ])
+        train_dataset = CustomImageDataset(input_dir=dataset_path,
+                                           output_dir=dataset_path,
+                                           num_img=num_train, num_total=num_data, start_idx=0,
+                                           transform=transform)
+        test_dataset = CustomImageDataset(input_dir=dataset_path,
+                                          output_dir=dataset_path,
+                                          num_img=num_test, num_total=num_data, start_idx=num_train,
+                                          transform=transform)
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+
+    # model = torch.load(f'results/{running_name}/best_model.pt', 'cuda:0').to(device)
+        reconstruct(device, dataloader=test_loader, model=model)
 
 def show_structure():
 
@@ -100,15 +170,18 @@ def show_structure():
 
 if __name__ == '__main__':
 
-    before_after = 'before'
+    before_after = 'after'
+    flag = 'eval'
     torch.manual_seed(0)
     running_name = 'zzz_test'
     # running_name = 'lunar-serenity-38'
 
-    running_name = 'lilac-snowball-52'
+    running_name = 'leafy-disco-63'
+    running_name = 'peach-water-65'
 
     num_epochs = 100
-    num_data = 3600
+    num_data = 100000
+    num_sample = 20
 
     main()
     # show_structure()

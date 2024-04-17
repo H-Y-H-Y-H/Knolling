@@ -31,15 +31,16 @@ def change_name(source_path, target_path, start_idx, end_idx):
 
 def transform(source_path, target_path):
 
-    label_num = 100
+    label_num_start = 5900
+    label_num_end = 6000
     sol_num = 12
 
     img_path = target_path + 'images_after/'
     os.makedirs(img_path, exist_ok=True)
     # img_num = os.listdir(img_path)
 
-    num = 0
-    for i in range(label_num):
+    num = label_num_start * sol_num
+    for i in tqdm(range(label_num_start, label_num_end)):
 
         for j in range(sol_num):
 
@@ -56,6 +57,14 @@ def transform(source_path, target_path):
 
             num += 1
 
+def check(source_path, target_path):
+
+    num = 120000
+    img_path = target_path + 'images_after/'
+    for i in tqdm(range(num)):
+
+        img = cv2.imread(img_path + '%d.png' % i)
+
 if __name__ == "__main__":
 
     source_path = '../../../knolling_dataset/VAE_329_obj4/'
@@ -65,3 +74,4 @@ if __name__ == "__main__":
     # change_name(source_path=source_path, target_path=target_path, start_idx=start_idx, end_idx=end_idx)
 
     transform(source_path=source_path, target_path=target_path)
+    # check(source_path=source_path, target_path=target_path)

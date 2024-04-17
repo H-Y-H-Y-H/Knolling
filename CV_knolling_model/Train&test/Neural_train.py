@@ -45,7 +45,7 @@ def main(epochs):
     config.scheduler_factor = 0.1
     config.lr = 0.001
     config.kl_weight = 0.00005
-    config.latent_dim = 4096
+    config.latent_dim = 256
 
     os.makedirs(config.log_pth, exist_ok=True)
 
@@ -164,8 +164,8 @@ if __name__ == "__main__":
 
     torch.manual_seed(0)
     num_epochs = 500
-    num_data = 1200
-    before_after = 'before'
+    num_data = 100000
+    before_after = 'after'
     if before_after == 'before':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
     elif before_after == 'after':

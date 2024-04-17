@@ -379,6 +379,8 @@ class EncoderDecoder(torch.nn.Module):
         self.var_linear = nn.Linear(4096, latent_dim)
         self.decoder_projection = nn.Linear(latent_dim, 4096)
 
+        self.encoded_shape = [64, 128, 8, 4]
+
     def encoder(self, x):
         conv1_out = self.conv_stack1(x)
         conv2_out = self.conv_stack2(conv1_out)
@@ -424,7 +426,7 @@ class EncoderDecoder(torch.nn.Module):
         std = torch.exp(logvar / 2)
         z = eps * std + mean
         sampled_x = self.decoder_projection(z)
-        sampled_x = torch.reshape(z, (-1, encoded_shape[1], encoded_shape[2], encoded_shape[3]))
+        sampled_x = torch.reshape(sampled_x, (-1, encoded_shape[1], encoded_shape[2], encoded_shape[3]))
 
         out = self.decoder(sampled_x)
         # out = self.decoder(x)
@@ -434,6 +436,14 @@ class EncoderDecoder(torch.nn.Module):
 
         recons_loss = F.mse_loss(y_hat, y)
         kl_loss = torch.mean(-0.5 * torch.sum(1 + logvar - mean ** 2 - torch.exp(logvar), 1), 0)
-        # loss = recons_loss + kl_loss * self.kl_weight
-        loss = recons_loss
+        loss = recons_loss + kl_loss * self.kl_weight
+        # loss = recons_loss
         return loss, recons_loss, kl_loss * self.kl_weight
+
+    def sample(self, input_sample):
+        sampled_x = self.decoder_projection(input_sample)
+        sampled_x = torch.reshape(sampled_x, (-1, self.encoded_shape[1], self.encoded_shape[2], self.encoded_shape[3]))
+
+        out = self.decoder(sampled_x)
+
+        return out
