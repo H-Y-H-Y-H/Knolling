@@ -45,7 +45,8 @@ def main(epochs):
     config.scheduler_factor = 0.1
     config.lr = 0.001
     config.kl_weight = 0.00005
-    config.latent_dim = 4096
+    config.latent_dim = 32
+    config.mlp_hidden = [512, 128]
 
     os.makedirs(config.log_pth, exist_ok=True)
 
@@ -60,17 +61,17 @@ def main(epochs):
     print(config)
 
     # Mapping device
-    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     print('Use: ', device)
 
     # Model instantiation
     if config.pre_trained:
         # model = torch.load(pretrain_model_path, map_location=device)
-        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight).to(device)
+        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight, mlp_hidden=config.mlp_hidden).to(device)
         model.load_state_dict(torch.load(pretrain_model_path, map_location=device))
     else:
 
-        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight).to(device)
+        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight, mlp_hidden=config.mlp_hidden).to(device)
 
     # Training setup
     optimizer = torch.optim.Adam(model.parameters(), lr=config.lr)
@@ -164,13 +165,13 @@ if __name__ == "__main__":
 
     torch.manual_seed(0)
     num_epochs = 500
-    num_data = 100000
+    num_data = 1200
     before_after = 'before'
     if before_after == 'before':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
     elif before_after == 'after':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_after/'
-    wandb_flag = True
+    wandb_flag = False
     pre_train_flag = False
     train_train = False
     proj_name = "VAE_knolling"
