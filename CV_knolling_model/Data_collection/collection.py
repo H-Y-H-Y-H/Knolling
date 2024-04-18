@@ -427,14 +427,14 @@ if __name__ == '__main__':
     # np.random.seed(110)
 
     command = 'recover'
-    before_after = 'before'
+    before_after = 'after'
     obj_num = 4
     SHIFT_DATASET_ID = 0
 
     total_offset = [0.016, -0.20 + 0.016, 0]
 
-    start_evaluations = 6300
-    end_evaluations = 6500
+    start_evaluations = 800
+    end_evaluations = 1000
     step_num = 10
     save_point = np.linspace(int((end_evaluations - start_evaluations) / step_num + start_evaluations), end_evaluations, step_num)
 

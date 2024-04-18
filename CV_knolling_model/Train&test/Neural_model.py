@@ -49,6 +49,58 @@ class CustomImageDataset(Dataset):
 
         return self.img_input[idx], self.img_output[idx]
 
+class EmbeddedImageDataset(Dataset):
+    def __init__(self, input_dir, output_dir, num_img, sce_start_idx, num_sol, num_sce, transform=None):
+        self.input_dir = input_dir
+        self.output_dir = output_dir
+        self.num_img = num_img
+        self.sce_start_idx = sce_start_idx
+        self.transform = transform
+
+        self.img_input = []
+        self.img_output = []
+        self.index_sol_list = []
+
+        for i in tqdm(range(num_sce)):
+
+            for j in range(num_sol):
+
+                img_input_path = input_dir + '%d.png' % (num_sol * (i + self.sce_start_idx) + j)
+                img_output_path = output_dir + '%d.png' % (num_sol * (i + self.sce_start_idx) + j)
+                img_input = Image.open(img_input_path)
+                img_input = self.transform(img_input)
+                img_output = Image.open(img_output_path)
+                img_output = self.transform(img_output)
+                for k in range(num_sol):
+                    self.img_input.append(img_input)
+                    self.img_output.append(img_output)
+                    self.index_sol_list.append(k)
+        print('here')
+
+        # for i in tqdm(range(num_img)):
+        #
+        #     index_sol = i % num_sol
+        #
+        #     img_input = Image.open(input_dir + '%d.png' % (i+ self.start_idx))
+        #     img_input = self.transform(img_input)
+        #
+        #     self.img_input.append(img_input)
+        #     self.index_sol_list.append(index_sol)
+        #
+        #     img_output = Image.open(output_dir + '%d.png' % (i+ self.start_idx))
+        #     img_output = self.transform(img_output)
+        #
+        #     self.img_output.append(img_output)
+        self.index_sol_list = torch.LongTensor(self.index_sol_list)
+        # self.embedded_index = embedding(self.index_sol_list)
+
+    def __len__(self):
+        return self.num_img
+
+    def __getitem__(self, idx):
+
+        return self.img_input[idx], self.img_output[idx], self.index_sol_list[idx]
+
 class VAE(nn.Module):
     """VAE for 64x64 face generation.
 
@@ -144,7 +196,7 @@ class VAE(nn.Module):
 
 class MLP_latent(torch.nn.Module):
 
-    def __init__(self, in_layer=4096, mlp_hidden = [4096, 2048, 4096], latent_dim=4096):
+    def __init__(self, out_layer, in_layer, mlp_hidden = [4096, 2048, 4096]):
         super(MLP_latent, self).__init__()
 
         # self.layer1 = nn.Linear(input_size, hidden1_size)
@@ -153,7 +205,6 @@ class MLP_latent(torch.nn.Module):
         # self.output_layer = nn.Linear(hidden2_size, num_classes)
 
         modules = []
-        output_layer = in_layer
         prev_layer = in_layer
         for cur_layer in mlp_hidden:
             modules.append(nn.Sequential(
@@ -161,32 +212,30 @@ class MLP_latent(torch.nn.Module):
                     nn.ReLU()))
             prev_layer = cur_layer
         modules.append(nn.Sequential(
-                    nn.Linear(mlp_hidden[-1], output_layer)))
+                    nn.Linear(mlp_hidden[-1], out_layer)))
 
         self.MLP_module = nn.Sequential(*modules)
 
-        self.mean_linear = nn.Linear(in_layer, latent_dim)
-        self.var_linear = nn.Linear(in_layer, latent_dim)
-        self.decoder_projection = nn.Linear(latent_dim, in_layer)
-
     def forward(self, x):
-        x_shape = x.size()
-        encoded = torch.flatten(x, 1)
-        mean = self.MLP_module(encoded)
-        logvar = self.MLP_module(encoded)
-        # out = out.resize(x_shape[0], x_shape[1], x_shape[2], x_shape[3])
-        eps = torch.randn_like(logvar)
-        std = torch.exp(logvar / 2)
-        z = eps * std + mean
-        out = self.decoder_projection(z)
-        out = torch.reshape(out, (-1, x_shape[1], x_shape[2], x_shape[3]))
-        return out, mean, logvar
+        output = self.MLP_module(x)
+        return output
 
-    def loss_function(self, latent, mean, logvar):
+        # x_shape = x.size()
+        # encoded = torch.flatten(x, 1)
+        # mean = self.MLP_module(encoded)
+        # logvar = self.MLP_module(encoded)
+        # # out = out.resize(x_shape[0], x_shape[1], x_shape[2], x_shape[3])
+        # eps = torch.randn_like(logvar)
+        # std = torch.exp(logvar / 2)
+        # z = eps * std + mean
+        # out = self.decoder_projection(z)
+        # out = torch.reshape(out, (-1, x_shape[1], x_shape[2], x_shape[3]))
+        # return out, mean, logvar
 
-        kl_loss = torch.mean(
-            -0.5 * torch.sum(1 + logvar - mean ** 2 - torch.exp(logvar), 1), 0)
-        return kl_loss
+    def loss_function(self, pred_latent, latent):
+
+        mse_loss = F.mse_loss(latent, pred_latent)
+        return mse_loss
 
 def conv2d_bn_relu(inch, outch, kernel_size, stride=1, padding=1):
     convlayer = torch.nn.Sequential(
@@ -431,6 +480,21 @@ class EncoderDecoder(torch.nn.Module):
         out = self.decoder(sampled_x)
         # out = self.decoder(x)
         return out, mean, logvar
+
+    def get_latent_space(self, x):
+        encoded = self.encoder(x)
+        encoded_shape = encoded.size()
+        encoded_flatten = torch.flatten(encoded, 1)
+        x = torch.reshape(encoded_flatten, (-1, encoded_shape[1], encoded_shape[2], encoded_shape[3]))
+        # x == encoded all!!!!!!
+
+        mean = self.mean_linear(encoded_flatten)
+        logvar = self.var_linear(encoded_flatten)
+        eps = torch.randn_like(logvar)
+        std = torch.exp(logvar / 2)
+        z = eps * std + mean
+
+        return z
 
     def loss_function(self, y, y_hat, mean, logvar):
 

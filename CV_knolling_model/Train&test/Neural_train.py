@@ -142,7 +142,7 @@ def main(epochs):
             abort_learning += 1
 
         if epoch % 20 == 0:
-            torch.save(model, config.log_pth + '/latest_model.pt')
+            torch.save(model.state_dict(), config.log_pth + '/latest_model.pt')
 
         if wandb_flag == True:
             wandb.log({"train_loss": train_loss,
