@@ -75,7 +75,6 @@ class EmbeddedImageDataset(Dataset):
                     self.img_input.append(img_input)
                     self.img_output.append(img_output)
                     self.index_sol_list.append(k)
-        print('here')
 
         # for i in tqdm(range(num_img)):
         #

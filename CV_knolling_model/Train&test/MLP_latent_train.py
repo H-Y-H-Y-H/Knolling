@@ -2,9 +2,10 @@ import cv2
 import torch
 from torch import nn
 from torchvision import datasets, transforms
+from torchvision.transforms import Resize, Compose, ToTensor, Normalize, ToPILImage
+
 from torch.utils.data import DataLoader
 from Neural_model import VAE, CustomImageDataset, EncoderDecoder, MLP_latent, EmbeddedImageDataset
-from torchvision.transforms import Resize, Compose, ToTensor, Normalize
 import numpy as np
 import wandb
 import yaml
@@ -92,6 +93,7 @@ def main(epochs):
     for epoch in range(epochs):
         model.train()
         train_loss = []
+        index = 0
         for batch_idx, (messy_img, tidy_img, index_sol_list) in enumerate(train_loader):
 
             optimizer.zero_grad()
@@ -102,7 +104,26 @@ def main(epochs):
             index_embedding = embedding(index_sol_list)
 
             messy_latent = messy_model.get_latent_space(messy_img)
+            messy_img_test, _, _ = messy_model(messy_img)
+            img_messy_gt = messy_img[1].detach().cpu()
+            img_messy_recon = messy_img_test[1].detach().cpu()
+            combined = torch.cat((img_messy_recon, img_messy_gt), 1)
+            img = ToPILImage()(combined)
+            img.save(f'eval_{index}.jpg')
+
             tidy_latent = tidy_model.get_latent_space(tidy_img)
+            tidy_img_test, _, _ = tidy_model(tidy_img)
+            img_tidy_gt = (tidy_img.cpu().detach().numpy()[0] * 255).astype(np.uint8)
+            img_tidy_gt = np.transpose(img_tidy_gt, [1, 2, 0])
+            img_tidy_recon = (tidy_img_test.cpu().detach().numpy()[0] * 255).astype(np.uint8)
+            img_tidy_recon = np.transpose(img_tidy_recon, [1, 2, 0])
+            tidy_compare = np.concatenate((img_tidy_gt, img_tidy_recon), axis=1)
+            cv2.namedWindow('zzz', 0)
+            # cv2.resizeWindow('zzz', 1280, 960)
+            cv2.imshow("zzz", tidy_compare)
+            cv2.waitKey()
+            cv2.destroyAllWindows()
+
             messy_latent = torch.flatten(messy_latent, 1)
             tidy_latent = torch.flatten(tidy_latent, 1)
 
@@ -114,6 +135,8 @@ def main(epochs):
             tra_loss.backward()
             train_loss.append(tra_loss.item())
             optimizer.step()
+
+            index += 1
 
         train_loss = np.mean(np.asarray(train_loss))
 
@@ -169,9 +192,10 @@ def main(epochs):
             break
 
 if __name__ == '__main__':
+    torch.manual_seed(0)
 
     num_epochs = 500
-    num_scenario = 1000
+    num_scenario = 100
     num_sol = 12
     num_data = num_scenario * num_sol
 

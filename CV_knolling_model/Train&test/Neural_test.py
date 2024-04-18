@@ -24,8 +24,8 @@ def reconstruct(device, dataloader, model):
         eval_loss.append(loss.item())
         eval_recon_loss.append(recon_loss.item())
         eval_kl_loss.append(kl_loss.item())
-        output = img_recon[12].detach().cpu()
-        input = img_rdm[12].detach().cpu()
+        output = img_recon[0].detach().cpu()
+        input = img_rdm[0].detach().cpu()
         combined = torch.cat((output, input), 1)
         img = ToPILImage()(combined)
         img.save(f'results/{running_name}/eval_{index}.jpg')
@@ -155,11 +155,11 @@ def main():
                                           output_dir=dataset_path,
                                           num_img=num_test, num_total=num_data, start_idx=num_train,
                                           transform=transform)
-        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+        train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=False)
         test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
 
     # model = torch.load(f'results/{running_name}/best_model.pt', 'cuda:0').to(device)
-        reconstruct(device, dataloader=test_loader, model=model)
+        reconstruct(device, dataloader=train_loader, model=model)
 
 def show_structure():
 
@@ -170,8 +170,8 @@ def show_structure():
 
 if __name__ == '__main__':
 
-    before_after = 'after'
-    flag = 'sample'
+    before_after = 'before'
+    flag = 'eval'
     torch.manual_seed(0)
     running_name = 'zzz_test'
     # running_name = 'lunar-serenity-38'
@@ -181,7 +181,7 @@ if __name__ == '__main__':
     running_name = 'scarlet-monkey-66'
 
     num_epochs = 100
-    num_data = 100000
+    num_data = 1200
     num_sample = 20
 
     main()
