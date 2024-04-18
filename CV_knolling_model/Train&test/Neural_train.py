@@ -45,7 +45,7 @@ def main(epochs):
     config.scheduler_factor = 0.1
     config.lr = 0.001
     config.kl_weight = 0.00005
-    config.latent_dim = 256
+    config.latent_dim = 4096
 
     os.makedirs(config.log_pth, exist_ok=True)
 
@@ -60,7 +60,7 @@ def main(epochs):
     print(config)
 
     # Mapping device
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
     print('Use: ', device)
 
     # Model instantiation
@@ -165,7 +165,7 @@ if __name__ == "__main__":
     torch.manual_seed(0)
     num_epochs = 500
     num_data = 100000
-    before_after = 'after'
+    before_after = 'before'
     if before_after == 'before':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
     elif before_after == 'after':

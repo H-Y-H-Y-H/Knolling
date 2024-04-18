@@ -171,13 +171,14 @@ def show_structure():
 if __name__ == '__main__':
 
     before_after = 'after'
-    flag = 'eval'
+    flag = 'sample'
     torch.manual_seed(0)
     running_name = 'zzz_test'
     # running_name = 'lunar-serenity-38'
 
     running_name = 'leafy-disco-63'
     running_name = 'peach-water-65'
+    running_name = 'scarlet-monkey-66'
 
     num_epochs = 100
     num_data = 100000
