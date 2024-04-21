@@ -44,9 +44,10 @@ def main(epochs):
     config.num_data = num_data
     config.scheduler_factor = 0.1
     config.lr = 0.001
-    config.kl_weight = 0.00005
-    config.latent_dim = 32
-    config.mlp_hidden = [512, 128]
+    config.kl_weight = 0.00001
+    config.latent_dim = 256
+    config.mlp_hidden = [512]
+    config.mlp_latent_enable = mlp_latent_enable
 
     os.makedirs(config.log_pth, exist_ok=True)
 
@@ -61,17 +62,19 @@ def main(epochs):
     print(config)
 
     # Mapping device
-    device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:1" if torch.cuda.is_available() else "cpu")
     print('Use: ', device)
 
     # Model instantiation
     if config.pre_trained:
         # model = torch.load(pretrain_model_path, map_location=device)
-        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight, mlp_hidden=config.mlp_hidden).to(device)
+        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight,
+                               mlp_hidden=config.mlp_hidden, mlp_latent_enable=config.mlp_latent_enable).to(device)
         model.load_state_dict(torch.load(pretrain_model_path, map_location=device))
     else:
 
-        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight, mlp_hidden=config.mlp_hidden).to(device)
+        model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight,
+                               mlp_hidden=config.mlp_hidden, mlp_latent_enable=config.mlp_latent_enable).to(device)
 
     # Training setup
     optimizer = torch.optim.Adam(model.parameters(), lr=config.lr)
@@ -130,7 +133,8 @@ def main(epochs):
 
 
         if valid_loss < min_loss:
-            print(f'Epoch {epoch}, Train Loss: {train_loss}, Validation Loss: {valid_loss}, Lr: {optimizer.param_groups[0]["lr"]}')
+            print(f'Epoch {epoch}, Train Loss: {train_loss}, Tra Recon Loss: {train_recon_loss}, Tra KL Loss: {train_kl_loss}, '
+                  f'Val Loss: {valid_loss}, Val Recon Loss: {valid_recon_loss}, Val KL Loss: {valid_kl_loss}, Lr: {optimizer.param_groups[0]["lr"]}')
             min_loss = valid_loss
             PATH = config.log_pth + '/best_model.pt'
             # torch.save(model, PATH)
@@ -164,16 +168,19 @@ def main(epochs):
 if __name__ == "__main__":
 
     torch.manual_seed(0)
+    torch.set_num_threads(8)
+
     num_epochs = 500
-    num_data = 1200
+    num_data = 50000
     before_after = 'before'
     if before_after == 'before':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_before/'
     elif before_after == 'after':
         dataset_path = '../../../knolling_dataset/VAE_329_obj4/images_after/'
-    wandb_flag = False
+    wandb_flag = True
     pre_train_flag = False
     train_train = False
+    mlp_latent_enable = True
     proj_name = "VAE_knolling"
 
     train_input = []

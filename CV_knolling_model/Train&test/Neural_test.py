@@ -134,10 +134,12 @@ def main():
     config = {k: v for k, v in config_dict.items() if not k.startswith('_')}
     config = argparse.Namespace(**config)
     config.pre_trained = True
+    # config.mlp_latent_enable = True
 
     device = 'cuda:0'
     pretrain_model_path = f'results/{running_name}/best_model.pt'
-    model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight).to(device)
+    model = EncoderDecoder(in_channels=3, latent_dim=config.latent_dim, kl_weight=config.kl_weight,
+                           mlp_hidden=config.mlp_hidden, mlp_latent_enable=config.mlp_latent_enable).to(device)
 
     model.load_state_dict(torch.load(pretrain_model_path, map_location=device))
 
@@ -174,15 +176,18 @@ if __name__ == '__main__':
     flag = 'eval'
     torch.manual_seed(0)
     running_name = 'zzz_test'
-    # running_name = 'lunar-serenity-38'
 
-    running_name = 'leafy-disco-63'
     running_name = 'peach-water-65'
     running_name = 'scarlet-monkey-66'
 
+    running_name = 'ethereal-sea-79'
+
+    running_name = 'stoic-surf-84'
+    running_name = 'pleasant-resonance-87'
+
     num_epochs = 100
-    num_data = 1200
-    num_sample = 20
+    num_data = 50000
+    num_sample = 10
 
     main()
     # show_structure()

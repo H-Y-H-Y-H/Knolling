@@ -272,7 +272,7 @@ def deconv_relu(inch, outch, kernel_size, stride=1, padding=1):
 
 class EncoderDecoder(torch.nn.Module):
 
-    def __init__(self, in_channels, mlp_hidden=[512, 128], latent_dim=16, kl_weight=0.0001):
+    def __init__(self, in_channels, mlp_hidden=[512, 128], latent_dim=16, kl_weight=0.0001, mlp_latent_enable=False):
         super(EncoderDecoder, self).__init__()
 
         self.kl_weight = kl_weight
@@ -327,31 +327,33 @@ class EncoderDecoder(torch.nn.Module):
         )
 
         in_layer = 4096
-        mlp_modules = []
-        prev_layer = in_layer
-        for cur_layer in mlp_hidden:
-            mlp_modules.append(nn.Sequential(
-                nn.Linear(prev_layer, cur_layer),
-                nn.ReLU()))
-            prev_layer = cur_layer
-        mlp_modules.append(nn.Sequential(
-            nn.Linear(mlp_hidden[-1], latent_dim)))
+        if mlp_latent_enable == True:
+            mlp_modules = []
+            prev_layer = in_layer
+            for cur_layer in mlp_hidden:
+                mlp_modules.append(nn.Linear(prev_layer, cur_layer))
+                prev_layer = cur_layer
+            mlp_modules.append(nn.Linear(mlp_hidden[-1], latent_dim))
 
-        self.mean_linear = nn.Sequential(*mlp_modules)
-        self.var_linear = nn.Sequential(*mlp_modules)
+            self.mean_linear = nn.Sequential(*mlp_modules)
+            self.var_linear = nn.Sequential(*mlp_modules)
 
-        mlp_hidden.reverse()
-        mlp_modules = []
-        prev_layer = latent_dim
-        for cur_layer in mlp_hidden:
-            mlp_modules.append(nn.Sequential(
-                nn.Linear(prev_layer, cur_layer),
-                nn.ReLU()))
-            prev_layer = cur_layer
-        mlp_modules.append(nn.Sequential(
-            nn.Linear(mlp_hidden[-1], in_layer)))
+            mlp_hidden.reverse()
+            mlp_modules = []
+            prev_layer = latent_dim
+            for cur_layer in mlp_hidden:
+                mlp_modules.append(nn.Linear(prev_layer, cur_layer))
+                prev_layer = cur_layer
+            mlp_modules.append(nn.Linear(mlp_hidden[-1], in_layer))
 
-        self.decoder_projection = nn.Sequential(*mlp_modules)
+            self.decoder_projection = nn.Sequential(*mlp_modules)
+        else:
+
+            self.mean_linear = nn.Linear(in_layer, latent_dim)
+            self.var_linear = nn.Linear(in_layer, latent_dim)
+
+            self.decoder_projection = nn.Linear(latent_dim, in_layer)
+
 
         self.encoded_shape = [64, 128, 8, 4]
 
