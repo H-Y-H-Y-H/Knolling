@@ -29,10 +29,10 @@ def change_name(source_path, target_path, start_idx, end_idx):
             num += 1
     pass
 
-def transform(source_path, target_path):
+def transform(source_path, target_path, grey_flag=False):
 
-    label_num_start = 7000
-    label_num_end = 10000
+    label_num_start = 0
+    label_num_end = 12000
     sol_num = 12
 
     img_path = target_path + 'images_before/'
@@ -46,6 +46,7 @@ def transform(source_path, target_path):
 
             orig_img = cv2.imread(target_path + 'origin_images_before/label_%d_%d.png' % (i, j))
             img = cv2.resize(orig_img, (128, 128))
+            img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
             # cv2.namedWindow('zzz', 0)
             # cv2.resizeWindow('zzz', 1280, 960)
