@@ -5,7 +5,7 @@ from torchvision import datasets, transforms
 from torchvision.transforms import Resize, Compose, ToTensor, Normalize, ToPILImage
 
 from torch.utils.data import DataLoader
-from Neural_model import VAE, CustomImageDataset, EncoderDecoder, MLP_latent, EmbeddedImageDataset
+from VAE_model import VAE, CustomImageDataset, EncoderDecoder, MLP_latent, EmbeddedImageDataset
 import numpy as np
 import wandb
 import yaml
@@ -192,6 +192,7 @@ def main(epochs):
             break
 
 if __name__ == '__main__':
+
     torch.manual_seed(0)
 
     num_epochs = 500

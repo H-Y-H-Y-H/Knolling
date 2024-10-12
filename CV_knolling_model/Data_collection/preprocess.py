@@ -3,36 +3,18 @@ import numpy as np
 import os
 from tqdm import tqdm
 
-def change_name(source_path, target_path, start_idx, end_idx):
+def preprocess_img(grey_flag=False):
+    '''
 
-    label_num = 100
-    sol_num = 12
+    :param grey_flag:
+    :return:
+    '''
 
-    os.makedirs(target_path + 'images/', exist_ok=True)
-    input_path = target_path + 'img_input/'
-    output_path = target_path + 'img_output/'
-    os.makedirs(input_path, exist_ok=True)
-    os.makedirs(output_path, exist_ok=True)
-
-    num = 0
-    for i in range(label_num):
-
-        for j in range(sol_num):
-
-            orig_img = cv2.imread(target_path + 'origin_images/label_%d_%d.png' % (i, j))
-            img_input = orig_img[:, :640, :]
-            img_output = orig_img[:, 640:, :]
-            # print('here')
-            cv2.imwrite(input_path + '%d.png' % num, img_input)
-            cv2.imwrite(output_path + '%d.png' % num, img_output)
-
-            num += 1
-    pass
-
-def transform(source_path, target_path, grey_flag=False):
+    source_path = '../../../knolling_dataset/VAE_329_obj4/'
+    target_path = '../../../knolling_dataset/VAE_329_obj4/'
 
     label_num_start = 0
-    label_num_end = 12000
+    label_num_end = 1000
     sol_num = 12
 
     img_path = target_path + 'images_before/'
@@ -46,7 +28,7 @@ def transform(source_path, target_path, grey_flag=False):
 
             orig_img = cv2.imread(target_path + 'origin_images_before/label_%d_%d.png' % (i, j))
             img = cv2.resize(orig_img, (128, 128))
-            img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
+            # img = cv2.cvtColor(img, cv2.COLOR_RGB2GRAY)
 
             # cv2.namedWindow('zzz', 0)
             # cv2.resizeWindow('zzz', 1280, 960)
@@ -58,21 +40,67 @@ def transform(source_path, target_path, grey_flag=False):
 
             num += 1
 
-def check(source_path, target_path):
+def merge_txt():
+    '''
 
-    num = 120000
-    img_path = target_path + 'images_after/'
-    for i in tqdm(range(num)):
+    :return:
+    '''
 
-        img = cv2.imread(img_path + '%d.png' % i)
+    num_per_scenario = 4
+
+    start_evaluations = 0
+    end_evaluations = 200
+    step_num = 10
+    solution_num = 12
+    save_point = np.linspace(int((end_evaluations - start_evaluations) / step_num + start_evaluations),
+                             end_evaluations, step_num)
+
+    info_per_object = 7
+    for m in tqdm(range(solution_num)):
+
+        target_path = '../../dataset/VAE_1008_obj4/'
+        after_path = target_path + 'labels_after_%s/' % m
+        output_path = target_path + 'num_%d_after_%d.txt' % (num_per_scenario, m)
+        output_name_path = target_path + 'num_%d_after_name_%d.txt' % (num_per_scenario, m)
+
+        total_data = []
+        total_data_name = []
+        for s in save_point:
+            data = np.loadtxt(after_path + 'num_%d_%d.txt' % (num_per_scenario, int(s)))
+            data_name = np.loadtxt(after_path + 'num_%d_%d_name.txt' % (num_per_scenario, int(s)), dtype=str)
+            total_data.append(data)
+            total_data_name.append(data_name)
+        total_data = np.asarray(total_data).reshape(-1, num_per_scenario * info_per_object)
+        total_data_name = np.asarray(total_data_name, dtype=str).reshape(-1, num_per_scenario)
+
+        np.savetxt(output_path, total_data)
+        np.savetxt(output_name_path, total_data_name, fmt='%s')
+        # if m == 0:
+        #     total_data = []
+        #     for s in save_point:
+        #         results = np.loadtxt(before_path + 'num_%d_%d.txt' % (num, int(s)))
+        #         total_data.append(results)
+        #     total_data = np.asarray(total_data).reshape(-1, num * 5)
+        #     np.savetxt(target_path + 'num_%d_before_%d.txt' % (num, m), total_data)
+
+def add():
+    '''
+    deprecated function
+    :return:
+    '''
+    base_path = '../../dataset/learning_data_817/'
+    add_path = '../dataset/learning_data_817_add/'
+    # for m in tqdm(range(solution_num)):
+    #     data_base = np.loadtxt(base_path + 'labels_after_%s/num_%d.txt' % (m, num_range[0]))
+    #     data_add = np.loadtxt(add_path + 'labels_after_%s/num_%d.txt' % (m, num_range[0]))
+    #     data_new = np.concatenate((data_base, data_add), axis=0)
+    #     np.savetxt(base_path + 'labels_after_%s/num_%d_new.txt' % (m, num_range[0]), data_new)
+    for m in tqdm(range(1)):
+        data_base = np.loadtxt(base_path + 'labels_before_%s/num_%d.txt' % (m, num_range[0]))
+        data_add = np.loadtxt(add_path + 'labels_before_%s/num_%d.txt' % (m, num_range[0]))
+        data_new = np.concatenate((data_base, data_add), axis=0)
+        np.savetxt(base_path + 'labels_before_%s/num_%d_new.txt' % (m, num_range[0]), data_new)
 
 if __name__ == "__main__":
 
-    source_path = '../../../knolling_dataset/VAE_329_obj4/'
-    target_path = '../../../knolling_dataset/VAE_329_obj4/'
-    start_idx = 0
-    end_idx = 1000
-    # change_name(source_path=source_path, target_path=target_path, start_idx=start_idx, end_idx=end_idx)
-
-    transform(source_path=source_path, target_path=target_path)
-    # check(source_path=source_path, target_path=target_path)
+    preprocess_img()

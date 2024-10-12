@@ -25,8 +25,8 @@ class Collection_env:
 
         self.kImageSize = {'width': 480, 'height': 480}
         self.urdf_path = '../../ASSET/urdf/'
-        self.dataset_path = '../../../knolling_dataset/sundry_301/'
-        self.obj_urdf = '../../../knolling_dataset/'
+        self.dataset_path = '../../ASSET/sundry/'
+        # self.obj_urdf = '../../../knolling_dataset/'
         self.pybullet_path = pd.getDataPath()
         self.is_render = is_render
         if self.is_render:
@@ -433,12 +433,12 @@ if __name__ == '__main__':
 
     total_offset = [0.016, -0.20 + 0.016, 0]
 
-    start_evaluations = 800
-    end_evaluations = 1000
+    start_evaluations = 0
+    end_evaluations = 200
     step_num = 10
     save_point = np.linspace(int((end_evaluations - start_evaluations) / step_num + start_evaluations), end_evaluations, step_num)
 
-    target_path = f'../../../knolling_dataset/VAE_329_obj{obj_num}/'
+    target_path = f'../../dataset/VAE_1008_obj{obj_num}/'
 
     arrange_policy = {
                     'length_range': [0.036, 0.06], 'width_range': [0.016, 0.036], 'height_range': [0.01, 0.02], # objects 3d range

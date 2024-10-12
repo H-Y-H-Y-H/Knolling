@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="91c35ef1-c068-420c-97a2-5de04cb3bd1e" name="Changes" comment="4.26 update EncoderDecoder">
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Data_collection/merge_txt.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/MLP_latent_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/MLP_latent_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_model_github.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_train.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/results/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/results/readme.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ZhizhuoUp&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/H-Y-H-Y-H/Knolling.git&quot;,
+    &quot;accountId&quot;: &quot;4d5ca9a2-41af-4547-85e3-0f648a8e3aac&quot;
+  }
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2f72306II5BtIjOpw3PytSp5x62" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.MLP_latent_train.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.Neural_test (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Neural_test.executor&quot;: &quot;Run&quot;,
+    &quot;Python.Neural_train (1).executor&quot;: &quot;Run&quot;,
+    &quot;Python.Neural_train.executor&quot;: &quot;Debug&quot;,
+    &quot;Python.collection.executor&quot;: &quot;Run&quot;,
+    &quot;Python.ddpm.executor&quot;: &quot;Run&quot;,
+    &quot;Python.merge_txt.executor&quot;: &quot;Run&quot;,
+    &quot;Python.preprocess.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/zhizhuo/Creative_Machines_Lab/Knolling&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/CV_knolling_model" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Diffusion_knolling_model/Train&amp;Test" />
+      <recent name="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/results" />
+      <recent name="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/selected_results" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.merge_txt">
+    <configuration name="VAE_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Knolling" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Train&amp;test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="collection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Knolling" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Data_collection" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ddpm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Knolling" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Diffusion-Models-pytorch" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="merge_txt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Knolling" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Data_collection" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Data_collection/merge_txt.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Knolling" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Data_collection" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.collection" />
+      <item itemvalue="Python.merge_txt" />
+      <item itemvalue="Python.VAE_test" />
+      <item itemvalue="Python.ddpm" />
+      <item itemvalue="Python.preprocess" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.merge_txt" />
+        <item itemvalue="Python.collection" />
+        <item itemvalue="Python.VAE_test" />
+        <item itemvalue="Python.preprocess" />
+        <item itemvalue="Python.ddpm" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-0e3be3396995-c546a90a8094-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-242.23339.19" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="91c35ef1-c068-420c-97a2-5de04cb3bd1e" name="Changes" comment="" />
+      <created>1713137592689</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1713137592689</updated>
+    </task>
+    <task id="LOCAL-00001" summary="4.14 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713138075394</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1713138075394</updated>
+    </task>
+    <task id="LOCAL-00002" summary="4.14 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713138560405</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1713138560405</updated>
+    </task>
+    <task id="LOCAL-00003" summary="4.14 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713139230525</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1713139230525</updated>
+    </task>
+    <task id="LOCAL-00004" summary="4.14 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713139336548</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1713139336548</updated>
+    </task>
+    <task id="LOCAL-00005" summary="4.16 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713301089981</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1713301089981</updated>
+    </task>
+    <task id="LOCAL-00006" summary="4.18 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713472053765</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1713472053765</updated>
+    </task>
+    <task id="LOCAL-00007" summary="4.18 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713474043525</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1713474043525</updated>
+    </task>
+    <task id="LOCAL-00008" summary="4.18 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1713674113130</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1713674113130</updated>
+    </task>
+    <task id="LOCAL-00009" summary="4.26 update EncoderDecoder">
+      <option name="closed" value="true" />
+      <created>1714157568346</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1714157568346</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="4.14 update EncoderDecoder" />
+    <MESSAGE value="4.16 update EncoderDecoder" />
+    <MESSAGE value="4.18 update EncoderDecoder" />
+    <MESSAGE value="4.26 update EncoderDecoder" />
+    <option name="LAST_COMMIT_MESSAGE" value="4.26 update EncoderDecoder" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_model.py</url>
+          <line>273</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_model.py</url>
+          <line>169</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_model.py</url>
+          <line>231</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_train.py</url>
+          <line>132</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_model.py</url>
+          <line>432</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/MLP_latent_train.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

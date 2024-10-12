@@ -100,7 +100,7 @@ def launch():
     args.batch_size = 4
     args.image_size = 64
     # args.dataset_path = r"C:\Users\dome\datasets\landscape_img_folder"
-    args.dataset_path = r"/home/zhizhuo/Creative_Machines_Lab/knolling_dataset/diffusion_archive"
+    args.dataset_path = r"/home/zhizhuo/Creative_Machines_Lab/knolling_dataset/diffusion_archive_mini"
     args.device = "cuda"
     args.lr = 3e-4
     train(args)
