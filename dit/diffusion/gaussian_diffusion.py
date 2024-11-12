@@ -727,7 +727,8 @@ class GaussianDiffusion:
         if model_kwargs is None:
             model_kwargs = {}
         if noise is None:
-            noise = th.randn_like(x_start)
+            # noise = th.randn_like(x_start)
+            noise = th.zeros_like(x_start)  # Start with zero noise
         x_t = self.q_sample(x_start, t, noise=noise)
 
         terms = {}
@@ -785,6 +786,171 @@ class GaussianDiffusion:
             raise NotImplementedError(self.loss_type)
 
         return terms
+
+    def deterministic_training_losses(self, model, x_start, t, model_kwargs=None, vae=None, save_dir=None, steps=None):
+        """
+        Compute deterministic training losses that encourage direct mapping from noisy to clean images.
+        
+        Args:
+            model: The diffusion model
+            x_start: Clean target image latents [N x C x H x W]
+            t: Timesteps
+            model_kwargs: Additional args including conditioning image
+        """
+        if model_kwargs is None:
+            model_kwargs = {}
+            
+        # Use fixed noise pattern instead of random
+        batch_size = x_start.shape[0]
+        noise = th.zeros_like(x_start)  # Start with zero noise
+        
+        # Get noisy image
+        x_t = self.q_sample(x_start, t, noise=noise)
+        
+        # Get model prediction
+        model_output = model(x_t, t, **model_kwargs)
+        
+        # Save visualization if vae is provided
+        if vae is not None and save_dir is not None and steps % 10 == 0:  # Save every 100 steps
+        # if vae is not None and save_dir is not None:
+            import os
+            from torchvision.utils import save_image
+            
+            os.makedirs(save_dir, exist_ok=True)
+            step_dir = os.path.join(save_dir, f'step_{steps}')
+            os.makedirs(step_dir, exist_ok=True)
+            
+            with th.no_grad():
+                # Save model output
+                decoded_output = vae.decode(model_output[0].unsqueeze(0) / 0.18215).sample
+                save_image(
+                    decoded_output,
+                    os.path.join(step_dir, 'model_output.png'),
+                    normalize=True,
+                    value_range=(-1, 1)
+                )
+                
+                # Save target image
+                decoded_target = vae.decode(x_start[0].unsqueeze(0) / 0.18215).sample
+                save_image(
+                    decoded_target,
+                    os.path.join(step_dir, 'target_image.png'),
+                    normalize=True,
+                    value_range=(-1, 1)
+                )
+                
+                # Save conditioning image
+                if 'conditioning_image' in model_kwargs:
+                    decoded_cond = vae.decode(model_kwargs['conditioning_image'][0].unsqueeze(0) / 0.18215).sample
+                    save_image(
+                        decoded_cond,
+                        os.path.join(step_dir, 'conditioning_image.png'),
+                        normalize=True,
+                        value_range=(-1, 1)
+                    )
+        
+        terms = {}
+        
+        # Direct reconstruction loss - encourage model to predict clean image
+        if self.model_mean_type == ModelMeanType.START_X:
+            target = x_start
+        elif self.model_mean_type == ModelMeanType.EPSILON:
+            target = noise
+        else:
+            target = self.q_posterior_mean_variance(x_start=x_start, x_t=x_t, t=t)[0]
+            
+        # MSE loss between prediction and target
+        terms["mse"] = mean_flat((target - model_output) ** 2)
+        
+        # Optional: Add consistency loss between timesteps
+        if t[0] > 0:  # Skip first timestep
+            prev_t = t - 1
+            x_prev = self.q_sample(x_start, prev_t, noise=noise)
+            pred_prev = model(x_prev, prev_t, **model_kwargs)
+            terms["consistency"] = mean_flat((model_output.detach() - pred_prev) ** 2)
+        
+        # Combine losses
+        terms["loss"] = terms["mse"]
+        if "consistency" in terms:
+            terms["loss"] = terms["loss"] + 0.1 * terms["consistency"]
+            
+        # Optional: Add L1 loss for sharper results
+        l1_loss = th.abs(model_output - target).mean()
+        terms["loss"] = terms["loss"] + 0.1 * l1_loss
+        
+        return terms
+    
+    def deterministic_sampling(self, model, vae, conditioning_images, diffusion, device, save_dir=None, save_interval=None):
+        """
+        Perform deterministic sampling using the trained model.
+        
+        Args:
+            model: Trained DiT model
+            vae: VAE model for encoding/decoding
+            conditioning_images: Input images to condition on [B, C, H, W]
+            diffusion: Diffusion model instance
+            device: torch device
+            save_dir: Directory to save intermediate samples
+            save_interval: Interval for saving intermediate samples
+        """
+        with th.no_grad():
+            # Encode conditioning images
+            conditioning_latents = vae.encode(conditioning_images).latent_dist.mode().mul_(0.18215)
+            
+            # Get batch size and latent size
+            batch_size = conditioning_latents.shape[0]
+            latent_size = conditioning_latents.shape[2:]
+            
+            # Initialize with zero noise
+            x_t = th.zeros_like(conditioning_latents)
+            
+            # Setup timesteps (from T-1 to 0)
+            timesteps = list(range(diffusion.num_timesteps))[::-1]
+            
+            # Setup model kwargs
+            model_kwargs = {
+                'conditioning_image': conditioning_latents,
+            }
+            
+            # Create save directory if needed
+            import os
+            if save_dir:        
+                os.makedirs(save_dir, exist_ok=True)
+            
+            # Sampling loop
+            from tqdm.auto import tqdm
+            for step, t in enumerate(tqdm(timesteps, desc="Deterministic Sampling")):
+                # Create timestep tensor
+                t_tensor = th.full((batch_size,), t, device=device)
+                
+                # Get model prediction
+                model_output = model(x_t, t_tensor, **model_kwargs)
+                
+                # If not the last step, get next noisy sample
+                if t > 0:
+                    # Use zero noise for deterministic behavior
+                    noise = th.zeros_like(x_t)
+                    x_t = diffusion.q_sample(model_output, t_tensor - 1, noise=noise)
+                else:
+                    # At t=0, use model output directly
+                    x_t = model_output
+                
+                # Save intermediate samples if requested
+                if save_dir and save_interval and (t % save_interval == 0 or t == timesteps[-1]):
+                    current_samples = vae.decode(x_t / 0.18215).sample
+                    from torchvision.utils import save_image
+                    save_image(
+                        current_samples,
+                        os.path.join(save_dir, f'step_{t:04d}.png'),
+                        nrow=int(math.sqrt(batch_size)),
+                        normalize=True,
+                        value_range=(-1, 1)
+                    )
+            
+            # Decode final samples
+            final_samples = vae.decode(x_t / 0.18215).sample
+            
+            return final_samples
 
     def _prior_bpd(self, x_start):
         """

@@ -95,17 +95,31 @@ def main(args):
     # Sampling loop
     samples = None
     for step, out in enumerate(tqdm(
-        diffusion.p_sample_loop_progressive(
+        diffusion.ddim_sample_loop_progressive(
             model.forward_with_cfg_image,
             shape=z.shape,
             noise=z,
             clip_denoised=False,
-            model_kwargs=model_kwargs,  # Pass model_kwargs here
+            model_kwargs=model_kwargs,
             device=device,
+            eta=args.eta,  # eta is the temperature parameter
+            progress=True
         ),
         total=total_steps,
-        desc="Sampling"
+        desc="DDIM Sampling"
     )):
+    # for step, out in enumerate(tqdm(
+    #     diffusion.p_sample_loop_progressive(
+    #         model.forward_with_cfg_image,
+    #         shape=z.shape,
+    #         noise=z,
+    #         clip_denoised=False,
+    #         model_kwargs=model_kwargs,  # Pass model_kwargs here
+    #         device=device,
+    #     ),
+    #     total=total_steps,
+    #     desc="Sampling"
+    # )):
         current_timestep = indices[step]
         samples = out['sample']
 
@@ -114,14 +128,15 @@ def main(args):
             samples_to_save = samples.clone()
             # samples_to_save = samples_to_save[:n]  # Take the first half (guided samples)
             samples_to_save = vae.decode(samples_to_save / 0.18215).sample
+            
             save_image(
                 samples_to_save,
-                f"imgs/pretrain_sample_step_{current_timestep}.png",
+                f"imgs/ddim_sample_step_{current_timestep}.png",
                 nrow=4,
                 normalize=True,
                 value_range=(-1, 1)
             )
-            print(f"Intermediate samples at timestep {current_timestep} saved to sample_step_{current_timestep}.png")
+            print(f"DDIM intermediate samples at timestep {current_timestep} saved to sample_step_{current_timestep}.png")
 
     # Finalize and save the samples
     # samples = samples[:n]  # Take the first half (guided samples)
@@ -139,6 +154,10 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--num-samples", type=int, default=1)
     parser.add_argument("--conditioning-path", type=str, required=True, help="Path to conditioning images or image")
-    parser.add_argument("--output", type=str, default="imgs/pretrain_sample.png", help="Output file name")
+    parser.add_argument("--output", type=str, default="imgs/ddim_sample.png", help="Output file name")
+    parser.add_argument("--eta", type=float, default=0.0, 
+                       help="DDIM eta parameter (0.0 = deterministic, 1.0 = DDPM)")
+    parser.add_argument("--sampling-method", type=str, choices=['ddpm', 'ddim'], 
+                       default='ddim', help="Sampling method to use")
     args = parser.parse_args()
     main(args)
