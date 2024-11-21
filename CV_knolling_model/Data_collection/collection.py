@@ -15,7 +15,7 @@ import csv
 import pandas
 import glob
 
-from arrange_policy import configuration_zzz, arrangement
+from arrange_policy import arrangement
 
 torch.manual_seed(42)
 
@@ -133,6 +133,7 @@ class Collection_env:
                                            high=self.arrange_policy['color_num'],
                                            size=(self.arrange_policy['object_num'], 1))
             data = np.concatenate((length_data, width_data, height_data, class_data, color_index_data), axis=1).round(decimals=3)
+            return data, None
 
         elif self.arrange_policy['object_type'] == 'sundry':
             class_index = np.random.choice(a=self.arrange_policy['max_class_num'],
@@ -146,10 +147,10 @@ class Collection_env:
             object_lwh_list = []
             for i in range(self.arrange_policy['object_num']):
                 object_path = self.dataset_path + 'generated_stl/' + class_name[i] + '/'
-                candidate_object = np.random.choice(glob.glob(object_path + '*.csv')).split('/')[-1][:-4]
-                # temp = os.listdir(object_path)
-                # temp.sort()
-                # temp_object_index = np.random.choice(np.arange(int(len(temp) / 2)) * 2)
+                obj_list = glob.glob(object_path + '*.csv')
+                obj_list = [path.replace('\\', '/') for path in obj_list]
+                candidate_object = np.random.choice(obj_list).split('/')[-1][:-4]
+
                 object_csv_path = object_path + candidate_object + '.csv'
                 object_name_list.append(candidate_object)
                 object_lwh_list.append(pandas.read_csv(object_csv_path).iloc[0, [3, 4, 5]].values)
@@ -165,7 +166,7 @@ class Collection_env:
                                    color_index_data.reshape(self.arrange_policy['object_num'], 1)), axis=1)
             object_name_list = np.asarray(object_name_list)
 
-        return data, object_name_list
+            return data, object_name_list
 
     def get_obs(self, order, evaluation):
 
@@ -248,49 +249,15 @@ class Collection_env:
                          angularDamping=0.5)
 
         self.state_blank = p.saveState()
-        ################### recover urdf boxes based on lw_data ###################
-        # if self.arrange_policy['object_type'] == 'box':
-        #     temp_box = URDF.load('../../ASSET/urdf/box_generator/template.urdf')
-        #     save_urdf_path_one_img = save_urdf_path + 'img_%d/' % img_index
-        #     os.makedirs(save_urdf_path_one_img, exist_ok=True)
-        #     for i in range(len(lw_data)):
-        #         temp_box.links[0].collisions[0].origin[2, 3] = 0
-        #         length = lw_data[i, 0]
-        #         width = lw_data[i, 1]
-        #         height = 0.012
-        #         temp_box.links[0].visuals[0].geometry.box.size = [length, width, height]
-        #         temp_box.links[0].collisions[0].geometry.box.size = [length, width, height]
-        #         temp_box.links[0].visuals[0].material.color = mapped_color_values[i]
-        #         temp_box.save(save_urdf_path_one_img + 'box_%d.urdf' % (i))
-        #
-        #     object_idx = []
-        #     print('position\n', pos_data)
-        #     print('orietation\n', ori_data)
-        #     print('lwh\n', lw_data)
-        #     for i in range(len(lw_data)):
-        #         print(f'this is matching urdf{i}')
-        #         pos_data[i, 2] += 0.006
-        #         object_idx.append(p.loadURDF(save_urdf_path_one_img + 'box_%d.urdf' % (i),
-        #                        basePosition=pos_data[i],
-        #                        baseOrientation=p.getQuaternionFromEuler(ori_data[i]), useFixedBase=False,
-        #                        flags=p.URDF_USE_SELF_COLLISION or p.URDF_USE_SELF_COLLISION_INCLUDE_PARENT))
 
         if self.arrange_policy['object_type'] == 'sundry':
-
-            # urdf_path_one_img = self.obj_urdf + 'OpensCAD_generate/urdf_file/'
             object_idx = []
-            # print('position\n', pos_data)
-            # print('lwh\n', lw_data)
 
             if before_after == 'after' or before_after == 'before_after':
                 for i in range(obj_num):
-
-                    # object_path = self.dataset_path + 'generated_stl/' + labels_name[i][:-2] + '/'
                     object_path = self.dataset_path + 'generated_stl/' + labels_name[i][:-2] + '/' + labels_name[i]
                     object_csv = object_path + '.csv'
-                    # object_stl = object_path + '.stl'
 
-                    # print(f'this is matching urdf{i}')
                     csv_lwh = np.asarray(pandas.read_csv(object_csv).iloc[0, [3, 4, 5]].values) * 0.001
                     pos_data[i, 2] = csv_lwh[2] / 2
 
@@ -376,7 +343,7 @@ class Collection_env:
         # return np.concatenate((rdm_img, neat_img), axis=1)
         return rdm_img, neat_img
 
-    def change_config(self):  # this is main function!!!!!!!!!
+    def change_config(self):  # this is the main function!!!!!!!!!
 
         # get the standard xyz and corresponding index from files in the computer
         arranger = arrangement(self.arrange_policy)
@@ -388,7 +355,6 @@ class Collection_env:
 
         # type, color, area, ratio
         for i in range(len(policy_switch)):
-
             arranger.arrange_policy['type_classify_flag'] = policy_switch[i][0]
             arranger.arrange_policy['color_classify_flag'] = policy_switch[i][1]
             arranger.arrange_policy['area_classify_flag'] = policy_switch[i][2]
@@ -423,152 +389,161 @@ class Collection_env:
 
 if __name__ == '__main__':
 
-    # np.random.seed(110)
-    # np.random.seed(110)
+    #- run ```CV_knolling_model/collection.py``` with ```command``` equal to ```collection```,
+    # to generate all txt data of objects in the neat/random arrangement.
 
+    # you can run multiple instances of the program to speed up the data collection
+    # - run ```merge_txt``` function in ```CV_knolling_model/preprocess.py```
+    # to merge txt data of different instances into one
+
+    # - run ```CV_knolling_model/collection.py``` with ```command``` equal to ```recover```,
+    # to convert txt data of the neat/random arrangement to image data of it.
+
+    # you can run multiple instances of the program to speed up the data collection
+
+    # command = 'collection'
     command = 'recover'
-    before_after = 'after'
-    obj_num = 4
-    SHIFT_DATASET_ID = 0
 
-    total_offset = [0.016, -0.20 + 0.016, 0]
+    for before_after in ['after','before']:
 
-    start_evaluations = 0
-    end_evaluations = 200
-    step_num = 10
-    save_point = np.linspace(int((end_evaluations - start_evaluations) / step_num + start_evaluations), end_evaluations, step_num)
+        obj_num = 10
+        SHIFT_DATASET_ID = 0
+        print(SHIFT_DATASET_ID)
+        total_offset = [0.016, -0.20 + 0.016, 0]
 
-    target_path = f'../../dataset/VAE_1008_obj{obj_num}/'
+        step_num = 10
+        num_each_step = 20
 
-    arrange_policy = {
-                    'length_range': [0.036, 0.06], 'width_range': [0.016, 0.036], 'height_range': [0.01, 0.02], # objects 3d range
-                    'object_num': obj_num, 'output_per_cfg': 3, 'object_type': 'sundry', # sundry or box
-                    'iteration_time': 10,
-                    'area_num': None, 'ratio_num': None, 'area_classify_flag': None, 'ratio_classify_flag': None,
-                    'class_num': None, 'color_num': None, 'max_class_num': 9, 'max_color_num': 7,
-                    'type_classify_flag': None, 'color_classify_flag': None, # classification range
-                    'arrangement_policy': 'Type*3, Color*3, Area*3, Ratio*3', # customized setting
-                    'object_even': True, 'block_even': True, 'upper_left_max': False, 'forced_rotate_box': False,
-                    'total_offset': [0, 0, 0], 'gap_item': 0.016, 'gap_block': 0.016 # inverval and offset of the arrangement
-                    }
-    policy_switch = [[True, False, False, False],
-                     [False, True, False, False],
-                     [False, False, True, False],
-                     [False, False, False, True]]
-    solution_num = int(arrange_policy['output_per_cfg'] * len(policy_switch))
-    # solution_num = 1
+        start_evaluations = step_num*num_each_step* SHIFT_DATASET_ID
+        end_evaluations   = step_num*num_each_step*(SHIFT_DATASET_ID+1)
 
-    if command == 'recover':
+        save_point = np.linspace(num_each_step+start_evaluations, end_evaluations, step_num, dtype=int)
 
-        os.makedirs(target_path + 'origin_images_before/', exist_ok=True)
-        os.makedirs(target_path + 'origin_images_after/', exist_ok=True)
+        target_path = f'C:/Users/yuhan/PycharmProjects/Knolling_data/dataset/VAE_1118_obj{obj_num}/'
+        os.makedirs(target_path, exist_ok=True)
 
-        env = Collection_env(is_render=False, arrange_policy=arrange_policy, total_offset = total_offset)
-        with open('../../ASSET/urdf/object_color/rgb_info.json') as f:
-            color_dict = json.load(f)
-        names = locals()
-        # data_before = []
-        save_urdf_path = []
-        for m in range(SHIFT_DATASET_ID, SHIFT_DATASET_ID + solution_num):
-            print('load results')
-            names['data_' + str(m)] = np.loadtxt(target_path + 'num_%d_after_%d.txt' % (arrange_policy['object_num'], m))
-            if arrange_policy['object_type'] == 'sundry':
-                names['name_' + str(m)] = np.loadtxt(target_path + 'num_%d_after_name_%d.txt' % (arrange_policy['object_num'], m), dtype=str)
+        # target_path = f'../../dataset/VAE_1020_obj{obj_num}/'
 
-            if len(names['data_' + str(m)].shape) == 1:
-                names['data_' + str(m)] = names['data_' + str(m)].reshape(1, len(names['data_' + str(m)]))
+        arrange_policy = {
+                        'length_range': [0.036, 0.06], 'width_range': [0.016, 0.036], 'height_range': [0.01, 0.02], # objects 3d range
+                        'object_num': obj_num, 'output_per_cfg': 3, 'object_type': 'sundry', # sundry or box
+                        'iteration_time': 10,
+                        'x_max': 0.27, 'y_max': 0.28,  # Define maximum allowable x-coordinate
+                        'area_num': None, 'ratio_num': None, 'area_classify_flag': None, 'ratio_classify_flag': None,
+                        'class_num': None, 'color_num': None, 'max_class_num': 9, 'max_color_num': 7,
+                        'type_classify_flag': None, 'color_classify_flag': None, # classification range
+                        'arrangement_policy': 'Type*3, Color*3, Area*3, Ratio*3', # customized setting
+                        'object_even': True, 'block_even': True, 'upper_left_max': False, 'forced_rotate_box': False,
+                        'total_offset': [0, 0, 0], 'gap_item': 0.016, 'gap_block': 0.016 # inverval and offset of the arrangement
+                        }
 
-            box_num = arrange_policy['object_num']
-            print('this is len results', len(names['data_' + str(m)]))
+        policy_switch = [[True, False, False, False],
+                         [False, True, False, False],
+                         [False, False, True, False],
+                         [False, False, False, True]]
 
-        for j in range(start_evaluations, end_evaluations):
-            # env.get_parameters(box_num=boxes_num)
-            for m in range(SHIFT_DATASET_ID, SHIFT_DATASET_ID+solution_num):
-                print(f'this is results {j}')
-                one_img_data = names['data_' + str(m)][j].reshape(-1, 7)
+        solution_num = int(arrange_policy['output_per_cfg'] * len(policy_switch))
 
-                rdm_img, neat_img = env.label2image(names['data_' + str(m)][j], labels_name=names['name_' + str(m)][j])
-                rdm_img = rdm_img[..., :3]
-                neat_img = neat_img[..., :3]
+        if command == 'collection': # save the parameters of results collection
+            with open(target_path[:-1] + "_readme.json", "w") as f:
+                json.dump(arrange_policy, f, indent=4)
 
-                # cv2.namedWindow('zzz', 0)
-                # cv2.resizeWindow('zzz', 1280, 960)
-                # cv2.imshow("zzz", image)
-                # cv2.waitKey()
-                # cv2.destroyAllWindows()
-                # cv2.imwrite('layout_%s.png' % j, image)
+            env = Collection_env(is_render=False, arrange_policy=arrange_policy, total_offset=total_offset)
+            after_path = []
+            names = locals()
+            for m_id in range(solution_num):
+                after_path.append(target_path + 'labels_after_%s/' % m_id)
+                os.makedirs(after_path[m_id], exist_ok=True)
+                names['data_after_distance_' + str(m_id)] = []
+                names['name_after_distance_' + str(m_id)] = []
 
-                if before_after == 'before' or before_after == 'before_after':
-                    cv2.imwrite(target_path + 'origin_images_before/label_%d_%d.png' % (j, m), rdm_img)
-                if before_after == 'after' or before_after == 'before_after':
-                    cv2.imwrite(target_path + 'origin_images_after/label_%d_%d.png' % (j, m), neat_img)
+            for j in range(num_each_step*step_num):
+                index_point = j // num_each_step
+                save_id = save_point[index_point]
+
+                while True:
+                    # Generate arrangements
+                    data_after_distance_total, name_after_distance_total, data_after_default_total, name_after_default_total = env.change_config()
+
+                    # Check if all objects are within boundaries
+                    is_within_boundaries = True
+                    for data_after_distance in data_after_distance_total:
+                        # Extract positions and dimensions
+                        positions = data_after_distance[:, :2]  # Assuming first two columns are x, y positions
+                        dimensions = data_after_distance[:, 2:4]  # Assuming next two columns are length, width
+
+                        # Find the object with the maximum x and y positions
+                        max_x_index = np.argmax(positions[:, 0])  # Index of the object with max x
+                        max_y_index = np.argmax(positions[:, 1])  # Index of the object with max y
+
+                        # Calculate boundaries
+                        max_x_end = positions[max_x_index, 0] + (
+                                    dimensions[max_x_index, 1] / 2)  # max x position + half width
+                        max_y_end = positions[max_y_index, 1] + (
+                                    dimensions[max_y_index, 0] / 2)  # max y position + half length
+
+                        # Check if these exceed the boundaries
+                        if max_x_end > arrange_policy['x_max'] or max_y_end > arrange_policy['y_max']:
+                            is_within_boundaries = False
+
+                            break
+
+                    if is_within_boundaries:
+                        print('succ')
+                        break  # Exit the loop if arrangement is valid
 
 
-    if command == 'collection':
 
-        # save the parameters of results collection
-        with open(target_path[:-1] + "_readme.json", "w") as f:
-            json.dump(arrange_policy, f, indent=4)
+                for m in range(solution_num):
+                    names['data_after_distance_' + str(m)].append(data_after_distance_total[m].reshape(-1))
+                    names['name_after_distance_' + str(m)].append(name_after_distance_total[m])
 
-        env = Collection_env(is_render=False, arrange_policy=arrange_policy, total_offset = total_offset)
+                    if len(names['data_after_distance_' + str(m)]) == num_each_step:
+                        names['data_after_distance_' + str(m)] = np.asarray(names['data_after_distance_' + str(m)])
+                        names['name_after_distance_' + str(m)] = np.asarray(names['name_after_distance_' + str(m)], dtype=str)
 
-        change_cfg_flag = False
+                        np.savetxt(after_path[m] + 'num_%s_%s.txt' % (arrange_policy['object_num'], save_id),
+                                   names['data_after_distance_' + str(m)])
+                        np.savetxt(after_path[m] + 'num_%s_%s_name.txt' % (arrange_policy['object_num'], save_id),
+                                   names['name_after_distance_' + str(m)], fmt='%s')
 
-        after_path = []
-        for i in range(solution_num):
-            after_path.append(target_path + 'labels_after_%s/' % i)
-            os.makedirs(after_path[i], exist_ok=True)
+                        names['data_after_distance_' + str(m)] = []
+                        names['name_after_distance_' + str(m)] = []
+                        print('save results in:' + after_path[m] + 'num_%s_%s.txt' % (arrange_policy['object_num'], save_id))
 
-        names = locals()
-        for m in range(solution_num):
-            names['data_after_distance_' + str(m)] = []
-            names['name_after_distance_' + str(m)] = []
-            # names['data_after_default_' + str(m)] = []
-            # names['name_after_default_' + str(m)] = []
-        j = 0
-        index_point = 0
+        if command == 'recover':
+            os.makedirs(target_path + 'origin_images_before/', exist_ok=True)
+            os.makedirs(target_path + 'origin_images_after/', exist_ok=True)
 
-        while change_cfg_flag == False:
-            data_after_distance_total, name_after_distance_total, data_after_default_total, name_after_default_total = env.change_config()
-
-            if j + start_evaluations == int(save_point[-1]):
-                print('over!!!!!!!!!!!!')
-                quit()
-
-            save_flag = False
-            break_flag = False
-
+            env = Collection_env(is_render=False, arrange_policy=arrange_policy, total_offset = total_offset)
+            with open('../../ASSET/urdf/object_color/rgb_info.json') as f:
+                color_dict = json.load(f)
+            names = locals()
+            # data_before = []
+            save_urdf_path = []
             for m in range(solution_num):
+                print('load results')
+                names['data_' + str(m)] = np.loadtxt(target_path + 'num_%d_after_%d.txt' % (arrange_policy['object_num'], m))
+                if arrange_policy['object_type'] == 'sundry':
+                    names['name_' + str(m)] = np.loadtxt(target_path + 'num_%d_after_name_%d.txt' % (arrange_policy['object_num'], m), dtype=str)
 
-                names['data_after_distance_' + str(m)].append(data_after_distance_total[m].reshape(-1))
-                names['name_after_distance_' + str(m)].append(name_after_distance_total[m])
-                # names['data_after_default_' + str(m)].append(data_after_default_total[m].reshape(-1))
-                # names['name_after_default_' + str(m)].append(name_after_default_total[m])
+                if len(names['data_' + str(m)].shape) == 1:
+                    names['data_' + str(m)] = names['data_' + str(m)].reshape(1, len(names['data_' + str(m)]))
 
-                if len(names['data_after_distance_' + str(m)]) == int((end_evaluations - start_evaluations) / step_num):
-                    names['data_after_distance_' + str(m)] = np.asarray(names['data_after_distance_' + str(m)])
-                    names['name_after_distance_' + str(m)] = np.asarray(names['name_after_distance_' + str(m)], dtype=str)
-                    # names['data_after_default_' + str(m)] = np.asarray(names['data_after_default_' + str(m)])
-                    # names['name_after_default_' + str(m)] = np.asarray(names['name_after_default_' + str(m)], dtype=str)
-                    np.savetxt(after_path[m] + 'num_%s_%s.txt' % (arrange_policy['object_num'], int(save_point[index_point])), names['data_after_distance_' + str(m)])
-                    np.savetxt(after_path[m] + 'num_%s_%s_name.txt' % (arrange_policy['object_num'], int(save_point[index_point])), names['name_after_distance_' + str(m)], fmt='%s')
-                    # np.savetxt(after_path[m] + 'num_%s_%s_default.txt' % (arrange_policy['object_num'], int(save_point[index_point])), names['data_after_default_' + str(m)])
-                    # np.savetxt(after_path[m] + 'num_%s_%s_name_default.txt' % (arrange_policy['object_num'], int(save_point[index_point])), names['name_after_default_' + str(m)], fmt='%s')
+                box_num = arrange_policy['object_num']
+                print('this is len results', len(names['data_' + str(m)]))
 
-                    # with open(after_path[m] + 'num_%s_%s_name.txt' % (arrange_policy['object_num'], int(save_point[index_point])), 'w') as f:
-                    #     for line in names['name_after_' + str(m)]:
-                    #
-                    #         f.write(str(line) + '\n')
+            for j in range(start_evaluations, end_evaluations):
+                for m in range(solution_num):
+                    print(f'this is results {j}')
+                    one_img_data = names['data_' + str(m)][j].reshape(-1, 7)
 
-                    names['data_after_distance_' + str(m)] = []
-                    names['name_after_distance_' + str(m)] = []
-                    # names['data_after_default_' + str(m)] = []
-                    # names['name_after_default_' + str(m)] = []
+                    rdm_img, neat_img = env.label2image(names['data_' + str(m)][j], labels_name=names['name_' + str(m)][j])
+                    rdm_img = rdm_img[..., :3]
+                    neat_img = neat_img[..., :3]
 
-                    print('save results in:' + after_path[m] + 'num_%s_%s.txt' % (arrange_policy['object_num'], int(save_point[index_point])))
-                    save_flag = True
-            if break_flag == False:
-                print(j)
-                j += 1
-            if save_flag == True:
-                index_point += 1
+                    if before_after == 'before' or before_after == 'before_after':
+                        cv2.imwrite(target_path + 'origin_images_before/label_%d_%d.png' % (j, m), rdm_img)
+                    if before_after == 'after' or before_after == 'before_after':
+                        cv2.imwrite(target_path + 'origin_images_after/label_%d_%d.png' % (j, m), neat_img)
+
