@@ -71,11 +71,11 @@ if __name__ == "__main__":
     source_path = f'C:/Users/yuhan/PycharmProjects/Knolling_data/dataset/VAE_1118_obj{obj_num}/'
     target_path = source_path
 
-    all_num_txt = 1
+    all_num_txt = 10
 
     label_num_start = 0
     label_num_end = all_num_txt*200
 
     solution_num = 12
 
-    merge_txt(obj_num = obj_num)
+    merge_txt(obj_num=obj_num)

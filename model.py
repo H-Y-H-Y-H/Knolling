@@ -5,6 +5,9 @@ from torch.utils.data import Dataset, DataLoader
 import torchvision.datasets as Datasets
 import torchvision.transforms as transforms
 import torch.nn.functional as F
+# Device configuration
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+print(f"Using device: {device}")
 
 
 class ResidualBlock(nn.Module):
@@ -71,6 +74,7 @@ class VAEWithMLP(nn.Module):
 
     def forward(self, x, label_embed_id=None):
         latents = self.vae.encode(x).latent_dist.sample()
+
 
         # Use MLPModel to process the latent space
         processed_latent = self.mlp_model(latents, label_embed_id)

@@ -36,7 +36,7 @@ import os
 # plt.tight_layout()
 # plt.subplots_adjust(top=0.9)
 # plt.show()
-
+#
 # for idx in range(1,1220):
 #     input_embed_id_0 = idx // 144
 #     input_embed_id_1 = (idx % 144) // 12
@@ -55,13 +55,19 @@ from sklearn.decomposition import PCA
 from scipy.stats import norm
 import pandas as pd
 
-# before_data = np.load('../../dataset/VAE_1020_obj4/before_latent.npy')
-# after_data = np.load('../../dataset/VAE_1020_obj4/before_latent.npy')
+obj_num = 2
+messy_data_path = f'C:/Users/yuhan/PycharmProjects/Knolling_data/dataset_white/obj{obj_num}/'
+tidy_data_path = f'C:/Users/yuhan/PycharmProjects/Knolling_data/dataset_white/obj{obj_num}/'
+
+messy_latent = []
+tidy_latent = []
+for i in range(2000):
+    latent_data = np.load(messy_data_path+f'latent_after/label_{i}_{0}.npy')
+    messy_latent.append(latent_data)
 
 
-# Load latent vectors
-latent_vectors = np.load('../dataset/VAE_1020_obj4/before_latent.npy')
-flattened_latents = latent_vectors.reshape(12000, -1)
+
+flattened_latents = np.asarray(messy_latent).reshape(len(messy_latent),-1)
 
 # PCA Visualization
 pca = PCA(n_components=2)

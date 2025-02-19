@@ -10,6 +10,9 @@ conda create -n knolling python=3.9
 conda activate knolling
 pip install -r requirements.txt
 ```
+
+
+Download dataset: 
 ### Intro
 
 Here are the introduction for folders included in this project.

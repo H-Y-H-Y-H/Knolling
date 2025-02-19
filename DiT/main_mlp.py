@@ -199,7 +199,7 @@ if __name__ == "__main__":
     print('loaded')
     # Create dataset
     data_loaded = [before_data, after_data]
-    data_num = 144000  # Total data points
+    data_num = 288000  # Total data points 2000*12*12
     dataset = LatentDataset(data_loaded, data_num)
     # Prepare the data loaders
     train_size = int(0.8 * len(dataset))
@@ -215,11 +215,11 @@ if __name__ == "__main__":
 
     # Train model
     if mode == 0:
-        model_name = '1117-2'
+        model_name = '0211'
         save_folder = f'mlp/{model_name}/'
         os.makedirs(save_folder, exist_ok=True)
 
-        pretrained_model = 'mlp/1117-1/best_1117-1.pth'
+        pretrained_model = 'mlp/1117-2/best_1117-2.pth'
         load_pretrained_flag = True
 
         # Initialize the model, optimizer, and loss function

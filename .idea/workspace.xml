@@ -4,18 +4,1260 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91c35ef1-c068-420c-97a2-5de04cb3bd1e" name="Changes" comment="4.26 update EncoderDecoder">
+    <list default="true" id="91c35ef1-c068-420c-97a2-5de04cb3bd1e" name="Changes" comment="vae model">
+      <change afterPath="$PROJECT_DIR$/ASSET/urdf/augmented_image.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CV_knolling_model/Data_collection/data_collection.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CV_knolling_model/Data_collection/parameters.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiT/download.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiT/vae/Results/vae_V10-sim2real-4(untrained)_128_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiT/vae/Results/vae_V10-sim2real-4_128_test.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiT/vae/run_vae_sim2real.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DiT/vae/train_mlp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/messy_to_tidy.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/model/vae_V10-M2T.pt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rendering_images/domain_randomization.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rendering_images/generate_img.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/rendering_images/simVSreal.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Knolling.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Knolling.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ASSET/urdf/object_color/rgb_info.json" beforeDir="false" afterPath="$PROJECT_DIR$/ASSET/urdf/object_color/rgb_info.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Data_collection/merge_txt.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/MLP_latent_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/MLP_latent_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_model_github.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/Neural_train.py" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_train.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/results/readme.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/results/readme.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" beforeDir="false" afterPath="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/data/14400_latent_data/after_latent.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/data/14400_latent_data/before_latent.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/diff/1119/best_1119.pth" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/diff/1119/best_1119.pth" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/diff/1119/test_losses.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/diff/1119/test_losses.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/diff/1119/train_losses.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/diff/1119/train_losses.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/diff/train_diffusion.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/diff/train_diffusion.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/main_mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/main_mlp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/script.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/script.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/Models/vae_V2_128-1.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/Models/vae_V2_128.pt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/m2t_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/m2t_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/run_vae-mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/garbage/run_vae-mlp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/run_vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/run_vae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/run_vae_ots.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/run_vae_ots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/run_vae_ots_m2t.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/run_vae_ots_m2t.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/train_vae-mlp.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/garbage/train_vae-mlp.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/train_vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/garbage/train_vae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/train_vae_ots.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/train_vae_ots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/train_vae_ots_m2t.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/train_vae_ots_m2t.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/vae.py" beforeDir="false" afterPath="$PROJECT_DIR$/DiT/vae/garbage/vae.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DiT/vae/vgg19.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm_conditional.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/modules.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/noising_test.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion-Models-pytorch/utils.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diffusion_knolling_model/Train&amp;Test/diffusion_policy.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/10.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1000.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1001.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1003.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1004.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1005.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1006.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1007.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1008.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1009.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1010.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1011.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1012.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1013.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1014.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1015.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1016.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1017.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1018.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1019.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/102.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1020.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1021.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1022.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1023.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1024.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1025.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1026.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1027.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1028.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1029.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/103.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1030.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1031.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1032.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1033.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1034.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1035.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1036.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1037.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1038.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1039.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1040.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1041.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1042.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1043.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1044.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1045.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1046.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1047.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1048.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1049.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1050.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1051.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1052.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1053.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1054.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1055.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1056.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1057.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1058.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1059.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/106.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1060.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1061.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1062.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1063.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1064.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1065.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1066.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1067.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1068.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1069.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/107.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1070.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1071.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1072.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1073.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1074.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1075.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1076.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1077.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1078.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1079.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1080.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1081.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1082.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1083.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1084.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1085.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1086.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1087.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1088.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1089.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1090.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1091.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1092.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1093.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1094.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1095.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1096.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1097.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1098.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1099.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/11.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1100.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1101.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1102.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1103.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1104.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1105.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1106.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1107.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1108.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1109.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1110.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1111.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1112.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1113.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1116.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1118.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/112.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/113.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1132.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1135.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1136.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1137.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/114.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1140.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1141.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1148.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/115.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1151.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1153.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1154.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1155.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1156.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1157.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1158.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1159.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/116.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1160.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1161.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1162.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1163.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1165.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1166.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1168.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1169.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/117.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1170.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1171.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1172.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1173.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1174.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1175.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1176.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1177.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1178.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1179.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/118.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1181.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1182.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1183.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1184.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1185.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1186.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1187.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1188.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1189.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/119.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1190.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1191.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1193.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1194.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1195.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1196.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1197.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1198.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/1199.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/12.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/120.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/121.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/122.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/123.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/124.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/125.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/126.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/127.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/128.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/129.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/13.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/130.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/131.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/132.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/133.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/134.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/135.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/136.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/137.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/138.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/139.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/14.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/140.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/141.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/142.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/143.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/144.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/145.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/146.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/147.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/148.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/149.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/15.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/150.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/151.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/152.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/153.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/154.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/155.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/156.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/157.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/158.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/159.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/16.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/160.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/161.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/162.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/163.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/164.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/165.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/166.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/167.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/168.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/169.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/17.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/170.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/171.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/172.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/173.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/174.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/175.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/176.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/177.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/178.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/179.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/18.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/180.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/181.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/182.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/183.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/184.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/185.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/186.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/187.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/188.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/189.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/19.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/190.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/191.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/193.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/194.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/195.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/196.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/197.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/198.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/199.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/20.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/200.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/201.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/202.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/203.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/204.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/205.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/206.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/207.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/208.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/209.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/21.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/210.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/211.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/212.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/213.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/214.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/215.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/216.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/217.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/218.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/219.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/22.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/220.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/221.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/222.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/223.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/224.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/225.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/226.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/227.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/228.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/229.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/23.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/230.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/231.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/232.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/233.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/234.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/235.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/236.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/237.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/238.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/239.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/24.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/240.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/241.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/242.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/243.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/244.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/245.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/246.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/247.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/248.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/249.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/25.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/250.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/251.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/252.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/253.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/254.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/255.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/256.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/257.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/258.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/259.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/26.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/260.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/261.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/262.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/263.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/264.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/265.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/266.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/267.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/268.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/269.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/27.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/270.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/271.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/272.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/273.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/274.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/275.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/276.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/277.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/278.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/279.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/28.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/280.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/281.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/282.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/283.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/284.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/285.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/286.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/287.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/288.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/289.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/29.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/290.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/291.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/292.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/293.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/294.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/295.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/296.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/297.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/298.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/299.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/30.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/300.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/301.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/302.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/303.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/304.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/305.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/306.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/307.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/308.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/309.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/31.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/310.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/311.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/312.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/313.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/314.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/315.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/316.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/317.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/318.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/319.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/320.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/321.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/322.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/323.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/324.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/325.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/326.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/327.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/328.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/329.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/33.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/330.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/331.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/332.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/333.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/334.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/335.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/336.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/337.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/338.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/339.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/34.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/340.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/341.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/342.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/343.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/344.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/345.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/346.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/347.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/348.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/349.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/35.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/350.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/351.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/352.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/353.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/354.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/355.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/356.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/357.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/358.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/359.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/36.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/360.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/361.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/362.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/363.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/364.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/365.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/366.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/367.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/368.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/369.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/37.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/370.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/371.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/372.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/373.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/374.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/375.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/376.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/377.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/378.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/379.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/38.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/380.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/381.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/382.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/383.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/384.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/385.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/386.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/387.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/388.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/389.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/39.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/390.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/391.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/392.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/393.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/394.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/395.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/396.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/397.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/398.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/399.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/40.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/400.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/401.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/402.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/403.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/404.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/405.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/406.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/407.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/408.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/409.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/41.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/410.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/411.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/412.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/413.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/414.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/415.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/416.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/417.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/418.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/419.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/42.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/420.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/421.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/422.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/423.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/424.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/425.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/426.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/427.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/428.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/429.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/43.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/430.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/431.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/432.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/433.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/434.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/435.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/436.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/437.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/438.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/439.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/44.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/440.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/441.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/442.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/443.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/444.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/445.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/446.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/447.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/448.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/449.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/45.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/450.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/451.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/452.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/453.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/454.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/455.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/456.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/457.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/458.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/459.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/46.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/460.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/461.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/462.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/463.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/464.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/465.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/466.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/467.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/468.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/469.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/47.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/470.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/471.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/472.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/473.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/474.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/475.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/476.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/477.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/478.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/479.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/48.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/480.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/481.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/482.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/483.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/484.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/485.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/486.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/487.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/488.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/489.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/49.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/490.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/491.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/492.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/493.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/494.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/495.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/496.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/497.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/498.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/499.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/500.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/501.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/502.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/503.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/504.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/505.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/506.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/507.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/508.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/509.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/51.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/510.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/511.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/513.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/514.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/515.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/516.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/517.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/518.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/519.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/52.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/520.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/521.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/522.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/523.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/524.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/525.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/526.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/527.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/528.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/529.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/53.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/530.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/531.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/532.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/533.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/534.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/535.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/536.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/537.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/538.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/539.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/54.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/540.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/541.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/542.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/543.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/544.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/545.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/546.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/547.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/548.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/549.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/55.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/550.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/551.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/552.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/553.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/554.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/555.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/556.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/557.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/558.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/559.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/56.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/560.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/561.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/562.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/563.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/564.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/565.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/566.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/567.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/568.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/569.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/57.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/570.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/571.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/572.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/573.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/574.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/575.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/576.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/577.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/578.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/579.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/58.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/580.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/581.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/582.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/583.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/584.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/585.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/586.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/587.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/588.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/589.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/59.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/590.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/591.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/592.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/593.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/594.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/595.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/596.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/597.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/598.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/599.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/6.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/60.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/600.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/601.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/602.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/603.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/604.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/605.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/606.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/607.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/608.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/609.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/61.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/610.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/611.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/612.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/613.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/614.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/615.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/616.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/617.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/618.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/619.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/62.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/620.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/621.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/622.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/623.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/624.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/625.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/626.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/627.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/628.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/629.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/63.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/630.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/631.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/632.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/633.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/634.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/635.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/636.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/637.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/638.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/639.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/64.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/640.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/641.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/642.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/643.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/644.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/645.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/646.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/647.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/648.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/649.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/65.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/650.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/651.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/652.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/653.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/654.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/655.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/656.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/657.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/658.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/659.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/66.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/660.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/661.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/662.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/663.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/664.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/665.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/666.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/667.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/668.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/669.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/67.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/670.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/671.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/672.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/673.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/674.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/675.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/676.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/677.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/678.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/679.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/68.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/680.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/681.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/682.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/683.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/684.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/685.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/686.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/687.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/688.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/689.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/69.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/690.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/691.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/692.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/693.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/694.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/695.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/696.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/697.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/698.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/699.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/7.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/70.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/700.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/701.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/702.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/703.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/704.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/705.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/706.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/707.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/708.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/709.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/71.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/710.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/711.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/712.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/713.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/714.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/715.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/716.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/717.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/718.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/719.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/72.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/720.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/721.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/722.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/723.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/724.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/725.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/726.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/727.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/728.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/729.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/73.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/730.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/731.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/732.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/733.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/734.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/735.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/736.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/737.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/738.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/739.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/74.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/740.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/741.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/742.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/743.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/744.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/745.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/746.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/747.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/748.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/749.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/75.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/750.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/751.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/752.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/753.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/754.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/755.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/756.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/757.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/758.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/759.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/76.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/760.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/761.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/762.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/763.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/764.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/765.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/766.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/767.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/768.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/769.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/77.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/770.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/771.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/772.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/773.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/774.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/775.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/776.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/777.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/778.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/779.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/78.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/780.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/781.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/782.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/783.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/784.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/785.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/786.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/787.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/788.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/789.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/79.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/790.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/791.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/792.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/793.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/794.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/795.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/796.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/797.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/798.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/799.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/8.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/80.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/800.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/801.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/802.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/803.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/804.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/805.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/806.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/807.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/808.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/809.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/81.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/810.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/811.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/812.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/813.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/814.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/815.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/816.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/817.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/818.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/819.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/82.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/820.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/821.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/822.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/823.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/824.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/825.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/826.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/827.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/828.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/829.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/83.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/830.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/831.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/832.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/833.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/834.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/835.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/836.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/837.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/838.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/839.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/84.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/840.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/841.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/842.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/843.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/844.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/845.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/846.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/847.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/848.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/849.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/85.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/850.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/851.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/852.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/853.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/854.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/855.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/856.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/857.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/858.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/859.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/86.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/860.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/861.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/862.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/863.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/864.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/865.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/866.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/867.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/868.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/869.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/87.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/870.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/871.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/872.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/873.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/874.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/875.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/876.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/877.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/878.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/879.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/88.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/880.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/881.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/882.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/883.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/884.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/885.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/886.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/887.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/888.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/889.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/89.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/890.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/891.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/892.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/893.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/894.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/895.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/896.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/897.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/898.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/899.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/9.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/90.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/900.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/901.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/902.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/903.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/904.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/905.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/906.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/907.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/908.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/909.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/91.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/910.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/911.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/912.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/913.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/914.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/915.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/916.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/917.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/918.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/919.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/92.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/920.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/921.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/922.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/923.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/924.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/925.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/926.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/927.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/928.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/929.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/93.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/930.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/931.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/932.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/933.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/934.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/935.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/936.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/937.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/938.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/939.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/94.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/940.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/941.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/942.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/943.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/944.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/945.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/946.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/947.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/948.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/949.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/95.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/950.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/951.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/952.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/953.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/954.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/955.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/956.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/957.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/958.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/959.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/960.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/961.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/962.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/963.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/964.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/965.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/966.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/967.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/968.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/969.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/97.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/970.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/971.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/972.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/973.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/974.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/975.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/976.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/977.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/978.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/979.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/98.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/980.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/981.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/982.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/983.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/984.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/985.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/986.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/987.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/988.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/989.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/99.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/990.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/991.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/992.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/993.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/994.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/995.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/996.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/997.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/998.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataset/VAE_329_obj4/images_before/999.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,50 +1297,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.MLP_latent_train.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.Neural_test (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.Neural_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.Neural_train (1).executor&quot;: &quot;Run&quot;,
-    &quot;Python.Neural_train.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.collection.executor&quot;: &quot;Run&quot;,
-    &quot;Python.ddpm.executor&quot;: &quot;Run&quot;,
-    &quot;Python.merge_txt.executor&quot;: &quot;Run&quot;,
-    &quot;Python.preprocess.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zhizhuo/Creative_Machines_Lab/Knolling&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyIntegratedToolsModulesConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.MLP_latent_train.executor": "Debug",
+    "Python.Neural_test (1).executor": "Run",
+    "Python.Neural_test.executor": "Run",
+    "Python.Neural_train (1).executor": "Run",
+    "Python.Neural_train.executor": "Debug",
+    "Python.collection.executor": "Run",
+    "Python.ddpm.executor": "Run",
+    "Python.merge_txt.executor": "Run",
+    "Python.preprocess.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/yuhan/PycharmProjects/Knolling/DiT/vae/Results",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/CV_knolling_model" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\DiT\vae\Results" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\rendering_images" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\model" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\DiT\vae" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/Diffusion_knolling_model/Train&amp;Test" />
-      <recent name="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/results" />
-      <recent name="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/selected_results" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\delete" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\DiT\vae\garbage" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\DiT\data" />
+      <recent name="C:\Users\yuhan\PycharmProjects\Knolling\dataset\14400_latent_data" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.merge_txt">
-    <configuration name="VAE_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.train_mlp">
+    <configuration name="generate_img" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Knolling" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Train&amp;test" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/rendering_images" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Train&amp;test/VAE_test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/rendering_images/generate_img.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -107,20 +1353,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="collection" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="run_vae_ots" type="PythonConfigurationType" factoryName="Python" singleton="false" temporary="true" nameIsGenerated="true">
       <module name="Knolling" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Data_collection" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="SDK_HOME" value="C:\Users\yuhan\anaconda3\envs\Knolling\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DiT/vae" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DiT/vae/run_vae_ots.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -129,20 +1374,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ddpm" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="script" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Knolling" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Diffusion-Models-pytorch" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DiT" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Diffusion-Models-pytorch/ddpm.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DiT/script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,20 +1395,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="merge_txt" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="train_mlp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Knolling" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Data_collection" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DiT/vae" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Data_collection/merge_txt.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DiT/vae/train_mlp.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -173,20 +1416,19 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="preprocess" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="train_vae_ots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Knolling" />
-      <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/CV_knolling_model/Data_collection" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DiT/vae" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DiT/vae/train_vae_ots.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -196,19 +1438,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.collection" />
-      <item itemvalue="Python.merge_txt" />
-      <item itemvalue="Python.VAE_test" />
-      <item itemvalue="Python.ddpm" />
-      <item itemvalue="Python.preprocess" />
+      <item itemvalue="Python.script" />
+      <item itemvalue="Python.train_mlp" />
+      <item itemvalue="Python.run_vae_ots" />
+      <item itemvalue="Python.train_vae_ots" />
+      <item itemvalue="Python.generate_img" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.merge_txt" />
-        <item itemvalue="Python.collection" />
-        <item itemvalue="Python.VAE_test" />
-        <item itemvalue="Python.preprocess" />
-        <item itemvalue="Python.ddpm" />
+        <item itemvalue="Python.train_mlp" />
+        <item itemvalue="Python.train_vae_ots" />
+        <item itemvalue="Python.generate_img" />
+        <item itemvalue="Python.run_vae_ots" />
+        <item itemvalue="Python.script" />
       </list>
     </recent_temporary>
   </component>
@@ -300,7 +1542,49 @@
       <option name="project" value="LOCAL" />
       <updated>1714157568346</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="11.18 test diffusion">
+      <created>1731887294621</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1731887294621</updated>
+    </task>
+    <task id="LOCAL-00011" summary="11.18 latent diffusion and latent data preprocessed by VAE">
+      <created>1731962378038</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1731962378038</updated>
+    </task>
+    <task id="LOCAL-00012" summary="diff for npy latent">
+      <created>1731968068929</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1731968068929</updated>
+    </task>
+    <task id="LOCAL-00013" summary="data collection ready">
+      <created>1732153855172</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1732153855172</updated>
+    </task>
+    <task id="LOCAL-00014" summary="vae model">
+      <created>1732926601268</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1732926601268</updated>
+    </task>
+    <task id="LOCAL-00015" summary="vae model">
+      <created>1734616476106</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1734616476106</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -319,7 +1603,12 @@
     <MESSAGE value="4.16 update EncoderDecoder" />
     <MESSAGE value="4.18 update EncoderDecoder" />
     <MESSAGE value="4.26 update EncoderDecoder" />
-    <option name="LAST_COMMIT_MESSAGE" value="4.26 update EncoderDecoder" />
+    <MESSAGE value="11.18 test diffusion" />
+    <MESSAGE value="11.18 latent diffusion and latent data preprocessed by VAE" />
+    <MESSAGE value="diff for npy latent" />
+    <MESSAGE value="data collection ready" />
+    <MESSAGE value="vae model" />
+    <option name="LAST_COMMIT_MESSAGE" value="vae model" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -353,6 +1642,81 @@
           <url>file://$PROJECT_DIR$/CV_knolling_model/Train&amp;test/MLP_latent_train.py</url>
           <line>113</line>
           <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py</url>
+          <line>30</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Data_collection/preprocess.py</url>
+          <line>39</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/models.py</url>
+          <line>394</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/main_mlp.py</url>
+          <line>208</line>
+          <option name="timeStamp" value="74" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/diff/train_diffusion.py</url>
+          <line>383</line>
+          <option name="timeStamp" value="80" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py</url>
+          <line>487</line>
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/CV_knolling_model/Data_collection/collection.py</url>
+          <line>187</line>
+          <option name="timeStamp" value="133" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/vae/garbage/train_vae.py</url>
+          <line>90</line>
+          <option name="timeStamp" value="138" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/vae/run_vae_ots_m2t.py</url>
+          <line>113</line>
+          <option name="timeStamp" value="143" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/vae/run_vae_ots.py</url>
+          <line>107</line>
+          <option name="timeStamp" value="150" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/vae/train_mlp.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="153" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/vae/run_vae_ots.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="154" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rendering_images/generate_img.py</url>
+          <line>370</line>
+          <option name="timeStamp" value="165" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rendering_images/generate_img.py</url>
+          <line>363</line>
+          <option name="timeStamp" value="166" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/DiT/vae/run_vae_sim2real.py</url>
+          <line>50</line>
+          <option name="timeStamp" value="168" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
