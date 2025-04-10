@@ -1,0 +1,140 @@
+0_0:
+  Object 1: stapler_1 at x=111.67, y=296.35, yaw=3.13
+  Object 2: wrench_2 at x=100.53, y=42.83, yaw=0.03
+  Object 3: wrench_2 at x=101.64, y=100.53, yaw=0.01
+  Object 4: ballpointpen_1 at x=133.95, y=160.21, yaw=0.00
+  Object 5: utilityknife_2 at x=112.47, y=220.44, yaw=0.00
+
+1_0:
+  Object 1: gear_3 at x=58.83, y=227.09, yaw=1.61
+  Object 2: spiralnotebook_1 at x=88.59, y=319.13, yaw=0.02
+  Object 3: wrench_2 at x=102.49, y=156.82, yaw=0.03
+  Object 4: wrench_2 at x=100.46, y=98.23, yaw=0.02
+  Object 5: ballpointpen_1 at x=132.79, y=40.24, yaw=3.13
+
+2_0:
+  Object 1: motor_2 at x=194.22, y=43.82, yaw=0.02
+  Object 2: gear_3 at x=312.90, y=56.70, yaw=1.63
+  Object 3: gear_3 at x=393.05, y=56.82, yaw=0.08
+  Object 4: spiralnotebook_1 at x=68.93, y=89.01, yaw=1.60
+  Object 5: motor_1 at x=164.76, y=122.70, yaw=0.04
+
+3_0:
+  Object 1: gear_3 at x=59.64, y=330.31, yaw=1.61
+  Object 2: utilityknife_1 at x=97.80, y=58.03, yaw=0.02
+  Object 3: highlighter_3 at x=115.01, y=203.74, yaw=0.02
+  Object 4: utilityknife_2 at x=107.57, y=137.98, yaw=0.00
+  Object 5: ballpointpen_1 at x=130.58, y=263.83, yaw=3.13
+
+4_0:
+  Object 1: highlighter_3 at x=163.66, y=107.71, yaw=1.59
+  Object 2: highlighter_3 at x=228.21, y=107.87, yaw=1.58
+  Object 3: wrench_2 at x=103.91, y=97.82, yaw=1.58
+  Object 4: utilityknife_1 at x=99.93, y=256.40, yaw=0.01
+  Object 5: wrench_2 at x=45.16, y=99.10, yaw=1.58
+
+5_0:
+  Object 1: motor_2 at x=85.01, y=43.23, yaw=0.03
+  Object 2: charger_3 at x=110.73, y=133.53, yaw=0.01
+  Object 3: highlighter_3 at x=116.24, y=222.99, yaw=0.02
+  Object 4: highlighter_3 at x=112.48, y=290.24, yaw=0.01
+  Object 5: utilityknife_1 at x=99.40, y=365.99, yaw=0.02
+
+6_0:
+  Object 1: gear_3 at x=234.91, y=56.96, yaw=1.62
+  Object 2: ballpointpen_1 at x=96.05, y=125.68, yaw=1.56
+  Object 3: ballpointpen_1 at x=43.65, y=136.66, yaw=1.59
+  Object 4: utilityknife_2 at x=157.00, y=116.27, yaw=1.59
+  Object 5: wrench_2 at x=304.48, y=99.05, yaw=1.58
+
+7_0:
+  Object 1: gear_3 at x=59.06, y=56.46, yaw=1.64
+  Object 2: gear_3 at x=59.76, y=137.37, yaw=1.61
+  Object 3: motor_1 at x=141.56, y=135.27, yaw=0.02
+  Object 4: motor_1 at x=140.99, y=54.16, yaw=0.01
+  Object 5: motor_1 at x=140.16, y=214.79, yaw=0.03
+
+8_0:
+  Object 1: gear_3 at x=59.46, y=281.28, yaw=1.62
+  Object 2: charger_3 at x=116.60, y=66.21, yaw=0.02
+  Object 3: utilityknife_2 at x=114.77, y=360.39, yaw=0.02
+  Object 4: wrench_2 at x=99.92, y=210.65, yaw=0.01
+  Object 5: wrench_2 at x=99.50, y=152.54, yaw=0.01
+
+9_0:
+  Object 1: gear_3 at x=59.44, y=56.44, yaw=1.65
+  Object 2: gear_3 at x=59.74, y=136.91, yaw=1.68
+  Object 3: motor_1 at x=140.74, y=135.42, yaw=0.03
+  Object 4: motor_1 at x=140.70, y=54.66, yaw=0.03
+  Object 5: wrench_2 at x=101.87, y=205.13, yaw=0.04
+
+10_0:
+  Object 1: gear_3 at x=58.35, y=56.29, yaw=0.05
+  Object 2: gear_3 at x=139.30, y=56.39, yaw=1.60
+  Object 3: gear_3 at x=58.63, y=136.96, yaw=1.64
+  Object 4: gear_3 at x=139.03, y=136.55, yaw=1.63
+  Object 5: motor_2 at x=207.25, y=82.19, yaw=1.59
+
+11_0:
+  Object 1: highlighter_1 at x=432.11, y=45.13, yaw=0.02
+  Object 2: charger_3 at x=114.85, y=180.52, yaw=0.03
+  Object 3: charger_3 at x=112.98, y=65.85, yaw=0.03
+  Object 4: ballpointpen_1 at x=301.22, y=139.52, yaw=1.58
+  Object 5: ballpointpen_1 at x=244.47, y=141.74, yaw=1.58
+
+12_0:
+  Object 1: gear_3 at x=59.19, y=268.08, yaw=1.74
+  Object 2: highlighter_3 at x=111.74, y=195.79, yaw=0.03
+  Object 3: stapler_1 at x=115.55, y=113.56, yaw=3.13
+  Object 4: ballpointpen_1 at x=45.74, y=392.35, yaw=1.57
+  Object 5: wrench_2 at x=102.23, y=42.75, yaw=0.03
+
+13_0:
+  Object 1: motor_2 at x=80.42, y=157.72, yaw=0.02
+  Object 2: gear_3 at x=59.90, y=232.84, yaw=1.63
+  Object 3: charger_3 at x=290.07, y=68.59, yaw=0.02
+  Object 4: utilityknife_1 at x=97.54, y=58.79, yaw=0.02
+  Object 5: wrench_2 at x=273.24, y=154.06, yaw=0.02
+
+14_0:
+  Object 1: motor_2 at x=43.38, y=84.05, yaw=1.59
+  Object 2: stapler_1 at x=243.83, y=115.99, yaw=1.60
+  Object 3: wrench_2 at x=114.25, y=97.69, yaw=1.53
+  Object 4: utilityknife_1 at x=336.80, y=96.24, yaw=1.57
+  Object 5: wrench_2 at x=170.61, y=99.10, yaw=1.59
+
+15_0:
+  Object 1: stapler_1 at x=228.92, y=115.64, yaw=1.60
+  Object 2: wrench_2 at x=104.99, y=101.06, yaw=0.01
+  Object 3: wrench_2 at x=102.30, y=44.22, yaw=0.02
+  Object 4: wrench_2 at x=101.33, y=216.95, yaw=0.02
+  Object 5: wrench_2 at x=103.20, y=161.13, yaw=0.00
+
+16_0:
+  Object 1: gear_3 at x=139.31, y=145.19, yaw=1.62
+  Object 2: gear_3 at x=59.53, y=145.63, yaw=1.62
+  Object 3: charger_3 at x=113.76, y=241.04, yaw=0.02
+  Object 4: gear_3 at x=219.12, y=145.29, yaw=1.63
+  Object 5: utilityknife_1 at x=98.81, y=57.33, yaw=0.02
+
+17_0:
+  Object 1: gear_3 at x=58.81, y=56.34, yaw=1.65
+  Object 2: gear_3 at x=139.21, y=56.92, yaw=1.62
+  Object 3: gear_3 at x=139.46, y=137.17, yaw=1.66
+  Object 4: gear_3 at x=59.20, y=137.38, yaw=1.62
+  Object 5: gear_3 at x=219.36, y=56.84, yaw=1.64
+
+18_0:
+  Object 1: spiralnotebook_1 at x=68.40, y=89.35, yaw=1.58
+  Object 2: spiralnotebook_1 at x=172.90, y=87.89, yaw=1.58
+  Object 3: spiralnotebook_1 at x=173.58, y=238.20, yaw=1.58
+  Object 4: spiralnotebook_1 at x=68.88, y=237.20, yaw=1.56
+  Object 5: ballpointpen_1 at x=256.47, y=135.75, yaw=1.59
+
+19_0:
+  Object 1: charger_3 at x=181.28, y=112.06, yaw=1.59
+  Object 2: charger_3 at x=69.22, y=110.83, yaw=1.59
+  Object 3: charger_3 at x=294.58, y=111.28, yaw=1.58
+  Object 4: spiralnotebook_1 at x=173.72, y=286.82, yaw=1.59
+  Object 5: spiralnotebook_1 at x=68.28, y=287.21, yaw=1.61
+
