@@ -2,6 +2,12 @@
 
 This repository contains a robotic knolling system that uses computer vision and a robotic arm to automatically organize objects in a visually appealing arrangement based on a reference layout image.
 
+## Overview
+
+The system uses a YOLO-based object detector to recognize objects in the workspace and then controls an Interbotix robotic arm to arrange them according to a predefined layout. The name "knolling" refers to the process of arranging objects at 90° angles to create a visually organized layout.
+
+The system leverages accurate camera-to-robot calibration using AprilTags, which enables precise determination of object positions in 3D space and allows the robotic arm to manipulate objects with high accuracy.
+
 ## Requirements
 
 ### Hardware
@@ -54,11 +60,6 @@ colcon build
 source install/setup.bash
 ```
 
-## Project Structure
-
-- `knolling_detector.py`: Handles object detection using YOLO and camera integration
-- `knolling_control.py`: Controls the robotic arm and implements the knolling algorithm
-
 ## Usage
 
 1. **Camera Setup:**
@@ -83,6 +84,85 @@ source install/setup.bash
 python3 src/robotic-knolling/knolling_control.py path/to/your/layout_image.jpg
 ```
 
+## AprilTag Camera-Robot Calibration
+
+We use AprilTags to sync up the camera and robot coordinate systems - essential for the robot to grab objects in the right spots.
+
+### How It Works
+
+The calibration process creates a map between camera coordinates and robot coordinates:
+
+1. **Tag Detection**: Camera sees an AprilTag mounted on the robot arm
+2. **Transform Chain**: We calculate two key transformations:
+   - Camera→Tag: Where the tag appears in camera view (T_CamTag)
+   - Tag→Robot: Where the tag sits on the robot from design specs (T_TagBase)
+3. **Complete Calculation**: Multiply these transforms to get Camera→Robot (T_CamBase = T_CamTag × T_TagBase)
+
+### Technical Implementation
+
+The `InterbotixArmTagInterface` handles the calibration process with these key steps:
+
+1. **Multi-Sample Collection**: The system takes multiple snapshots to improve accuracy:
+   ```python
+   for x in range(num_samples):
+       ps = self.apriltag.find_pose()
+       point.x += ps.position.x / float(num_samples)
+       point.y += ps.position.y / float(num_samples)
+       point.z += ps.position.z / float(num_samples)
+       
+       # Convert quaternion to Euler angles and average
+       quat_list = [ps.orientation.x, ps.orientation.y, ps.orientation.z, ps.orientation.w]
+       rpy_sample = euler_from_quaternion(quat_list)
+       rpy[0] += rpy_sample[0] / float(num_samples)  # Roll
+       rpy[1] += rpy_sample[1] / float(num_samples)  # Pitch
+       rpy[2] += rpy_sample[2] / float(num_samples)  # Yaw
+   ```
+
+2. **Homogeneous Transform Pipeline**: The system calculates and composes transformation matrices:
+   ```python
+   # Convert averaged pose to transformation matrix
+   T_CamTag = poseToTransformationMatrix([point.x, point.y, point.z, rpy[0], rpy[1], rpy[2]])
+   
+   # Get tag to base transform from URDF (via TF2)
+   T_TagBase = self.get_transform(tfBuffer, self.arm_tag_frame, arm_base_frame)
+   
+   # Calculate camera to base transform
+   T_CamBase = np.dot(T_CamTag, T_TagBase)
+   
+   # If needed, transform to another reference frame
+   if ref_frame != self.apriltag.image_frame_id:
+       T_RefCam = self.get_transform(tfBuffer, ref_frame, self.apriltag.image_frame_id)
+       T_RefBase = np.dot(T_RefCam, T_CamBase)
+   else:
+       T_RefBase = T_CamBase
+   ```
+
+3. **Position-Only Refinement** (Optional): For improved accuracy, sometimes only the position from the camera detection is used:
+   ```python
+   if position_only:
+       # Get the transform from the camera to the actual tag (from URDF)
+       T_CamActualTag = self.get_transform(tfBuffer, self.apriltag.image_frame_id, self.arm_tag_frame)
+       # Use position from detection but orientation from URDF
+       T_CamTag[:3,:3] = T_CamActualTag[:3,:3]
+   ```
+
+4. **Transform Publication**: The final transform is published to the ROS TF tree as a static transform:
+   ```python
+   # Extract translation and rotation
+   self.trans.transform.translation.x = T_RefBase[0,3]
+   self.trans.transform.translation.y = T_RefBase[1,3]
+   self.trans.transform.translation.z = T_RefBase[2,3]
+   
+   # Convert rotation matrix to quaternion
+   quat = quaternion_from_euler(self.rpy[0], self.rpy[1], self.rpy[2])
+   self.trans.transform.rotation = Quaternion(quat[0], quat[1], quat[2], quat[3])
+   
+   # Publish to TF tree
+   self.apriltag.pub_transforms.publish(self.trans)
+   ```
+
+This calibration is crucial - without it, the robot would try to pick up objects in the wrong locations. Once calibrated, any object the camera detects can be accurately located in the robot's coordinate system.
+
 ## Key Features
 
 - **Object Detection**: Uses YOLO-based detection with oriented bounding boxes for accurate pose estimation
@@ -99,18 +179,6 @@ The system's behavior can be customized by modifying the `CONFIG` parameters in 
 - **Detection Confidence**: Adjust YOLO detection thresholds
 - **Approach Parameters**: Fine-tune the robot's picking and placing movements
 
-## Extending the System
-
-### Adding New Object Classes
-1. Train your YOLO model to recognize new objects
-2. Update the model files in the `models/` directory
-3. No code changes needed as the system dynamically reads classes from the model
-
-### Using Different Robot Models
-1. Update the `CONFIG` parameters to match your robot
-2. Install appropriate Interbotix drivers
-3. Adjust approach/grasp parameters if your gripper differs
-
 ## Troubleshooting
 
 - **Detection Issues**: 
@@ -123,16 +191,7 @@ The system's behavior can be customized by modifying the `CONFIG` parameters in 
   - Verify that the arm has a clear path to the object
   - Adjust gripper parameters for different object sizes
 
-- **TF Errors**:
-  - Ensure all required ROS2 transforms are being published
-  - Check if camera_info topic is correctly configured
-
-## License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## Acknowledgments
-
-- Ultralytics for the YOLO implementation
-- Interbotix for the robotic arm and ROS2 packages
-- The ROS2 community for the robust robotics framework
+- **Calibration Issues**:
+  - Make sure the AprilTag is clearly visible to the camera
+  - Reduce glare and ensure consistent lighting
+  - Try increasing the number of samples for better averaging
